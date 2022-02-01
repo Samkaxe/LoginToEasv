@@ -40,7 +40,7 @@ public class MainWindowController {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
+        // easter
     public void key(KeyEvent keyEvent) {
         ArrayList<KeyCode> cat = new ArrayList<>();
         cat.add(keyEvent.getCode());
@@ -58,6 +58,7 @@ public class MainWindowController {
         }
 
          */
+        // we could set new stage called tirminal with one text field in it and enter option
 
     }
 }
