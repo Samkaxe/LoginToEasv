@@ -16,5 +16,6 @@ public class App extends Application {
         primaryStage.setScene(new Scene(omori));
         primaryStage.setTitle("Easv");
         primaryStage.show();
+        // testing github
     }
 }
