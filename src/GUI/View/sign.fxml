@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
 <StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="905.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.SignController">
    <children>
-      <AnchorPane fx:id="anchorpane" prefHeight="582.0" prefWidth="905.0">
+      <AnchorPane fx:id="anchorpane" prefHeight="582.0" prefWidth="905.0" style="-fx-background-image: url(/tools/Sign.jpg)">
          <children>
             <Button fx:id="bck" layoutX="718.0" layoutY="525.0" mnemonicParsing="false" onAction="#back" text="go back to themain scene" />
+            <Line endX="97.39337158203125" endY="100.0" layoutX="118.0" layoutY="416.0" startX="97.39338684082031" startY="-407.535400390625" />
+            <Label layoutX="236.0" layoutY="92.0" prefHeight="17.0" prefWidth="77.0" text="first name :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="236.0" layoutY="118.0" prefHeight="17.0" prefWidth="77.0" text="last name :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="236.0" layoutY="146.0" prefHeight="17.0" prefWidth="77.0" text="Email        :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="236.0" layoutY="172.0" prefHeight="17.0" prefWidth="77.0" text="telephone :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="236.0" layoutY="199.0" prefHeight="17.0" prefWidth="77.0" text="address    :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="322.0" layoutY="90.0" promptText="Enter first name" />
+            <TextField layoutX="322.0" layoutY="116.0" promptText="Enter last name" />
+            <TextField layoutX="322.0" layoutY="144.0" promptText="Enter your Email address" />
+            <TextField layoutX="322.0" layoutY="170.0" promptText="enter your phone number " />
+            <TextField layoutX="322.0" layoutY="197.0" promptText="enter your address " />
+            <ImageView fitHeight="150.0" fitWidth="179.0" layoutX="22.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="30.0" layoutY="189.0" prefHeight="17.0" prefWidth="164.0" text="upload your profile picture" />
+            <Label layoutX="236.0" layoutY="222.0" prefHeight="17.0" prefWidth="77.0" text="CPR    :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="322.0" layoutY="220.0" promptText="xxxxxx-xxxx" />
+            <Button layoutX="543.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Save" />
          </children></AnchorPane>
    </children>
 </StackPane>

@@ -4,12 +4,15 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -19,9 +22,11 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class MainWindowController {
+public class MainWindowController implements Initializable {
 
     @FXML
     public ImageView image;
@@ -33,6 +38,41 @@ public class MainWindowController {
     public AnchorPane mainancorpane;
     @FXML
     public Button logfxid;
+    @FXML
+    public Label welcomelbl;
+    @FXML
+    public Label notelog;
+    @FXML
+    public Label notsign;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        intro();
+    }
+
+    public void intro() {
+        Thread newThread = new Thread(() -> {
+            String intro = " welcome to Easv  ";
+            String totalSentence = "";
+            char[] num = intro.toCharArray();
+            for (char c : num) {
+                totalSentence = totalSentence + "" + c;
+                updateText(totalSentence);
+                try {
+                    Thread.sleep(150);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        newThread.start();
+
+    }
+    public void updateText(String c) {
+        Platform.runLater(() -> {
+            welcomelbl.setText("" + c);
+        });
+    }
 
     public void log(ActionEvent actionEvent) throws IOException {
         FXMLLoader kel = new FXMLLoader(getClass().getResource("/GUI/View/login.fxml"));
@@ -40,7 +80,6 @@ public class MainWindowController {
         Scene scene = logfxid.getScene();
         root.translateYProperty().set(scene.getHeight());
         stackpane.getChildren().add(root);
-        // stackpane.getChildren().remove(mainancorpane);
         Timeline timeline = new Timeline();
         KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
         KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
@@ -55,10 +94,10 @@ public class MainWindowController {
         FXMLLoader kel = new FXMLLoader(getClass().getResource("/GUI/View/sign.fxml"));
         Parent root = kel.load();
         Scene scene = signfxid.getScene();
-        root.translateYProperty().set(scene.getHeight());
+        root.translateXProperty().set(scene.getWidth());
         stackpane.getChildren().add(root);
         Timeline timeline = new Timeline();
-        KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
+        KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
         KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
         timeline.getKeyFrames().add(kf);
         timeline.setOnFinished(t -> {
@@ -116,4 +155,6 @@ public class MainWindowController {
     public void exit(ActionEvent actionEvent) {
 
     }
+
+
 }

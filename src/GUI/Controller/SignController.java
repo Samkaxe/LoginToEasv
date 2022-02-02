@@ -27,10 +27,10 @@ public class SignController {
     public void back(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/GUI/View/MainWindow.fxml"));
         Scene scene = bck.getScene();
-        root.translateYProperty().set(scene.getWidth());
+        root.translateXProperty().set(scene.getWidth());
         stackpane.getChildren().add(root);
         Timeline timeline = new Timeline();
-        KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
+        KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
         KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
         timeline.getKeyFrames().add(kf);
         timeline.setOnFinished(t -> {
@@ -38,4 +38,5 @@ public class SignController {
         });
         timeline.play();
     }
+
 }
