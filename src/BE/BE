@@ -1,0 +1,6 @@
+
+
+
+// Git doesn't like empty folders. It doesn't include them in
+commits and it certainly doesn't include an empty directory when
+ you push to GitHub or GitLab. But sometimes that causes a problem, which is where the . gitkeep file comes in
