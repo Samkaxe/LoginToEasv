@@ -49,7 +49,7 @@ public class LoginController implements Initializable {
         });
         timeline.play();
     }
-
+        // this is useless
     public void combo(ActionEvent actionEvent) {
     }
 
