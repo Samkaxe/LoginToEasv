@@ -4,15 +4,21 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 
-<AnchorPane onKeyPressed="#key" prefHeight="588.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MainWindowController">
+<StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="905.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MainWindowController">
    <children>
-      <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@/tools/EASYDVEST.jpg" />
-         </image></ImageView>
-      <Button fx:id="login" layoutX="375.0" layoutY="402.0" mnemonicParsing="false" onAction="#log" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: black;" text="Log in" textFill="#defc00" />
-      <Button fx:id="signin" layoutX="375.0" layoutY="433.0" mnemonicParsing="false" onAction="#sign" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: white;" text="Sign in" textFill="BLUE" />
-      <Button layoutX="777.0" layoutY="540.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Exit" />
+      <AnchorPane fx:id="mainancorpane" prefHeight="588.0" prefWidth="902.0">
+         <children>
+            <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/tools/EASYDVEST.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="logfxid" layoutX="375.0" layoutY="402.0" mnemonicParsing="false" onAction="#log" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: black;" text="Log in" textFill="#defc00" />
+            <Button fx:id="signfxid" layoutX="375.0" layoutY="433.0" mnemonicParsing="false" onAction="#sign" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: white;" text="Sign in" textFill="BLUE" />
+            <Button layoutX="777.0" layoutY="540.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="111.0" text="Exit" />
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</StackPane>
