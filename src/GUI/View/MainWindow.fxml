@@ -22,6 +22,7 @@
             <Label fx:id="welcomelbl" layoutX="375.0" layoutY="375.0" prefHeight="17.0" prefWidth="184.0" textAlignment="CENTER" />
             <Label fx:id="notelog" layoutX="486.0" layoutY="406.0" prefHeight="17.0" prefWidth="184.0" textAlignment="CENTER" />
             <Label fx:id="notsign" layoutX="486.0" layoutY="437.0" prefHeight="17.0" prefWidth="184.0" textAlignment="CENTER" />
+            <Button fx:id="tilebtn" layoutX="375.0" layoutY="458.0" mnemonicParsing="false" onAction="#opentilepane" prefHeight="25.0" prefWidth="111.0" text="Tilepane" />
          </children>
       </AnchorPane>
    </children>

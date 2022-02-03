@@ -44,6 +44,8 @@ public class MainWindowController implements Initializable {
     public Label notelog;
     @FXML
     public Label notsign;
+    @FXML
+    public Button tilebtn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -109,6 +111,23 @@ public class MainWindowController implements Initializable {
       //  stage.setScene(new Scene(root));
        // stage.show();
     }
+    public void opentilepane(ActionEvent actionEvent) throws IOException {
+        FXMLLoader omori = new FXMLLoader(getClass().getResource("/GUI/View/loginwithpics.fxml"));
+        Parent root = omori.load();
+        Scene scene = tilebtn.getScene();
+        root.translateXProperty().set(scene.getWidth());
+        stackpane.getChildren().add(root);
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setOnFinished(t -> {
+            stackpane.getChildren().remove(mainancorpane);
+        });
+        timeline.play();
+    }
+
+
     /*
      @FXML
     private void handleNewSongbtn(ActionEvent actionEvent) throws IOException {
@@ -155,6 +174,7 @@ public class MainWindowController implements Initializable {
     public void exit(ActionEvent actionEvent) {
 
     }
+
 
 
 }
