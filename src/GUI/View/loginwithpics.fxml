@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ScrollBar?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.TilePane?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="905.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.LoginwithpicsController">
-   <children>
-      <TilePane fx:id="tilepane" prefHeight="582.0" prefWidth="905.0">
-         <children>
-            <ScrollBar opacity="0.68" orientation="VERTICAL" prefHeight="581.0" prefWidth="16.0" />
-         </children></TilePane>
-   </children>
-</StackPane>
+
+<TilePane fx:id="tilepane" prefHeight="582.0" prefWidth="905.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.LoginwithpicsController" />
