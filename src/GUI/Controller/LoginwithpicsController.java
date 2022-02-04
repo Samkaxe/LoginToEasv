@@ -22,7 +22,7 @@ public class LoginwithpicsController implements Initializable {
         ObservableList<String> items = FXCollections.observableArrayList("mustafa", "zahra", "samkaxe", "diana", "java", "c#",
                 "i", "hate", "java", "omori");
 
-        for( int i = 0 ; i < 10 ; i++) {
+        for( int i = 0 ; i < items.size() ; i++) {
             Label lbl = new Label("yawn");
             ImageView view = new ImageView("tools/userpicture.png");
             VBox vBox = new VBox();
