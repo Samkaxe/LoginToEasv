@@ -8,9 +8,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -18,6 +20,8 @@ import java.util.ResourceBundle;
 public class LoginwithpicsController implements Initializable {
     @FXML
     private TilePane tilepane;
+    @FXML
+    private ImageView view ;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -33,7 +37,7 @@ public class LoginwithpicsController implements Initializable {
         students.addAll(student1,student2,student3,student4,student5,student6,student7);
 
         for(Student i : students){
-            ImageView view = new ImageView("tools/userpicture.png");
+             view = new ImageView("tools/userpicture.png");
             Label lbl = new Label(i.getName());
             VBox vBox = new VBox();
             vBox.getChildren().add(view);
@@ -41,25 +45,11 @@ public class LoginwithpicsController implements Initializable {
             tilepane.getChildren().add(vBox);
         }
 
-        /*
-        for(Student i : students){
-            Button btn = new Button(i.getName());
-            btn.setLayoutX(100);
-            btn.setLayoutY(100);
-            tilepane.getChildren().add(btn);
-        }
+    }
 
-         */
-
-
-        /*
-        for(int i = 0 ; i < 10 ; i++){
-            Button btn = new Button("new button " + i);
-            btn.setLayoutX(100*i);
-            btn.setLayoutY(0);
-            tilepane.getChildren().add(btn);
-        }
-
-         */
+    public void man(MouseEvent mouseEvent) {
+       if(view.isHover()){
+           System.out.println("dasdasdasdasd");
+       }
     }
 }
