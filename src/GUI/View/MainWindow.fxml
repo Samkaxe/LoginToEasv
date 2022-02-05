@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane fx:id="stackpane" style="-fx-background-color:red" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="905.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MainWindowController">
+<StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="905.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MainWindowController">
    <children>
       <AnchorPane fx:id="mainancorpane" prefHeight="588.0" prefWidth="902.0" style="-fx-background-image: url(/tools/main.jpg)">
          <children>
@@ -22,7 +22,9 @@
             <Label fx:id="welcomelbl" layoutX="375.0" layoutY="375.0" prefHeight="17.0" prefWidth="184.0" textAlignment="CENTER" />
             <Label fx:id="notelog" layoutX="486.0" layoutY="406.0" prefHeight="17.0" prefWidth="184.0" textAlignment="CENTER" />
             <Label fx:id="notsign" layoutX="486.0" layoutY="437.0" prefHeight="17.0" prefWidth="184.0" textAlignment="CENTER" />
-            <Button fx:id="tilebtn" layoutX="375.0" layoutY="458.0" mnemonicParsing="false" onAction="#opentilepane" prefHeight="25.0" prefWidth="111.0" text="Tilepane" />
+            <Button style="-fx-background-image: url(/tools/dansk.jpg)" layoutX="840.0" layoutY="14.0" prefHeight="25" prefWidth="47" mnemonicParsing="false" />
+            <Button style="-fx-background-image: url(/tools/english.png)" prefHeight="25" prefWidth="47" layoutX="777.0" layoutY="14.0" mnemonicParsing="false" />
+            <Button layoutX="853.0" layoutY="56.0" style="-fx-background-image: url(/tools/voice.png)" mnemonicParsing="false" prefHeight="26.0" prefWidth="39.0" />
          </children>
       </AnchorPane>
    </children>
