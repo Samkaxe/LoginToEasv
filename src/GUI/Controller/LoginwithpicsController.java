@@ -36,6 +36,8 @@ public class LoginwithpicsController implements Initializable {
     @FXML
     private VBox vBox ;
 
+    public String selectedstudent ;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Student student1 = new Student(1,"lina");
@@ -60,9 +62,11 @@ public class LoginwithpicsController implements Initializable {
                 @Override
                 public void handle(MouseEvent event) {
                     try {
+                         selectedstudent = i.getName();
                         System.out.println("student selected : " +  i.getName());
                         FXMLLoader omori = new FXMLLoader(getClass().getResource("/GUI/View/Class.fxml"));
                         Parent root = omori.load();
+                        omori.<ClassController>getController().setController(LoginwithpicsController.this);
                         Scene scene = vBox.getScene();
                         root.translateXProperty().set(scene.getWidth());
                         stackpane.getChildren().add(root);
