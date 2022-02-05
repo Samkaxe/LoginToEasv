@@ -5,6 +5,6 @@
 
 <StackPane style="-fx-background-color: red" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.ClassController">
    <children>
-      <TilePane fx:id="tilepane"  />
+      <TilePane fx:id="tilepane" />
    </children>
 </StackPane>
