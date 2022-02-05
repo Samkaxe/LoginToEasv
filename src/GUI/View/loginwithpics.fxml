@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.TilePane?>
 
-<TilePane fx:id="tilepane" prefHeight="582.0" prefWidth="905.0" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.LoginwithpicsController" />
+
+<StackPane  xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="GUI.Controller.LoginwithpicsController">
+   <children>
+      <TilePane fx:id="tilepane"  style="-fx-background-color: white" />
+   </children>
+</StackPane>
