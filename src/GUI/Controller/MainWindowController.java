@@ -23,8 +23,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class MainWindowController implements Initializable {
 
@@ -46,10 +45,14 @@ public class MainWindowController implements Initializable {
     public Label notsign;
     @FXML
     public Button tilebtn;
+    @FXML
+    private  List<String> num = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         intro();
+        timer();
+
     }
 
     public void intro() {
@@ -75,6 +78,29 @@ public class MainWindowController implements Initializable {
             welcomelbl.setText("" + c);
         });
     }
+    public void timer(){
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+              num.clear();
+                System.out.println("the list is cleared ");
+            }
+        };
+        timer.scheduleAtFixedRate(task,0,3000);
+    }
+
+    public void key(KeyEvent e) {
+            num.add(e.getCode().toString().toLowerCase());
+          String str = String.join("",num);
+          System.out.println(str);
+
+          if(str.equals("omori")){
+              System.out.println("its working ");
+              num.clear();
+          }
+    }
+
 
     public void log(ActionEvent actionEvent) throws IOException {
         FXMLLoader kel = new FXMLLoader(getClass().getResource("/GUI/View/login.fxml"));
