@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import GUI.Model.Student;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -10,10 +11,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
 
 public class SignController {
@@ -23,6 +30,43 @@ public class SignController {
     public StackPane stackpane;
     @FXML
     public AnchorPane anchorpane;
+    @FXML
+    public TextField firstname;
+    @FXML
+    public TextField email;
+    @FXML
+    public TextField telephone;
+    @FXML
+    public TextField adress;
+    @FXML
+    public TextField cpr;
+    @FXML
+    public Button upload;
+    @FXML
+    public ImageView image;
+    @FXML
+    private Image image2 ;
+
+    public void save(ActionEvent actionEvent) {
+
+        int tel  = Integer.parseInt(telephone.getText());
+        int cprr = Integer.parseInt(cpr.getText());
+       Student student = new Student(1,firstname.getText(),email.getText(),tel,cprr,image2,"ddddd");
+
+    }
+
+    public void upload(){
+        upload.setOnAction(event -> {
+            Stage stage = new Stage();
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG FILE","*png"));
+            File file =  fileChooser.showOpenDialog(stage);
+            System.out.println(file.toString());
+            Image image2 = new Image(file.toString());
+            image.setImage(image2);
+
+                });
+    }
 
     public void back(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/GUI/View/MainWindow.fxml"));
@@ -38,5 +82,4 @@ public class SignController {
         });
         timeline.play();
     }
-
 }

@@ -20,11 +20,6 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="236.0" layoutY="118.0" prefHeight="17.0" prefWidth="77.0" text="last name :">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
             <Label layoutX="236.0" layoutY="146.0" prefHeight="17.0" prefWidth="77.0" text="Email        :">
                <font>
                   <Font size="14.0" />
@@ -40,20 +35,21 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="322.0" layoutY="90.0" promptText="Enter first name" />
-            <TextField layoutX="322.0" layoutY="116.0" promptText="Enter last name" />
-            <TextField layoutX="322.0" layoutY="144.0" promptText="Enter your Email address" />
-            <TextField layoutX="322.0" layoutY="170.0" promptText="enter your phone number " />
-            <TextField layoutX="322.0" layoutY="197.0" promptText="enter your address " />
-            <ImageView fitHeight="150.0" fitWidth="179.0" layoutX="22.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+            <TextField fx:id="firstname" layoutX="322.0" layoutY="90.0" promptText="Enter first name" />
+            <TextField fx:id="email" layoutX="322.0" layoutY="144.0" promptText="Enter your Email address" />
+            <TextField fx:id="telephone" layoutX="322.0" layoutY="170.0" promptText="enter your phone number " />
+            <TextField fx:id="adress" layoutX="322.0" layoutY="197.0" promptText="enter your address " />
+            <ImageView fx:id="image" fitHeight="150.0" fitWidth="179.0" layoutX="22.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="30.0" layoutY="189.0" prefHeight="17.0" prefWidth="164.0" text="upload your profile picture" />
             <Label layoutX="236.0" layoutY="222.0" prefHeight="17.0" prefWidth="77.0" text="CPR    :">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="322.0" layoutY="220.0" promptText="xxxxxx-xxxx" />
-            <Button layoutX="543.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Save" />
+            <TextField fx:id="cpr" layoutX="322.0" layoutY="220.0" promptText="xxxxxx-xxxx" />
+            <Button layoutX="543.0" layoutY="309.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="90.0" text="Save" />
+            <Button fx:id="upload" layoutX="30.0" layoutY="220.0" mnemonicParsing="false" onAction="#upload" text="upload" />
+            <Label layoutX="30.0" layoutY="262.0" prefHeight="17.0" prefWidth="149.0" text="upload your image" />
          </children></AnchorPane>
    </children>
 </StackPane>

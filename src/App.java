@@ -14,6 +14,7 @@ public class App extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GUI/View/MainWindow.fxml"));
         Parent omori = loader.load();
         primaryStage.setScene(new Scene(omori));
+        primaryStage.setResizable(false);
         primaryStage.setTitle("Easv");
         primaryStage.show();
         // testing github
