@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -50,6 +51,11 @@ public class MainWindowController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Image image = new Image("/tools/mari.gif");
+        ImageView view = new ImageView(image);
+        view.setLayoutX(200);
+        view.setLayoutY(100);
+        mainancorpane.getChildren().add(view);
         intro();
         timer();
 
