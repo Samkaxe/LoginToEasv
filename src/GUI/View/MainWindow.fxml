@@ -18,7 +18,7 @@
             </ImageView>
             <Button fx:id="logfxid" layoutX="375.0" layoutY="402.0" mnemonicParsing="false" onAction="#log" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: black;" text="Log in" textFill="#defc00" />
             <Button fx:id="signfxid" layoutX="375.0" layoutY="433.0" mnemonicParsing="false" onAction="#sign" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: white;" text="Sign in" textFill="BLUE" />
-            <Button layoutX="777.0" layoutY="540.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="111.0" text="Exit" />
+            <Button fx:id="close" layoutX="777.0" layoutY="540.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="111.0" text="Exit" />
             <Label fx:id="welcomelbl" layoutX="375.0" layoutY="375.0" prefHeight="17.0" prefWidth="184.0" textAlignment="CENTER" />
             <Button layoutX="840.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25" prefWidth="47" style="-fx-background-image: url(/tools/dansk.jpg)" />
             <Button layoutX="777.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25" prefWidth="47" style="-fx-background-image: url(/tools/english.png)" />

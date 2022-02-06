@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import BE.Department;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -15,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -33,7 +35,11 @@ public class LoginController implements Initializable {
     @FXML
     public Button backbtn;
     @FXML
-    public ComboBox combobx;
+    private ComboBox combobx;
+    @FXML
+    private ChoiceBox departmentcombo;
+    @FXML
+    private ChoiceBox classcombo;
 
     public void back(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/GUI/View/MainWindow.fxml"));
@@ -51,6 +57,23 @@ public class LoginController implements Initializable {
     }
         // this is useless
     public void combo(ActionEvent actionEvent) {
+    }
+
+    public void login(ActionEvent actionEvent) {
+        System.out.println(classcombo.getSelectionModel().getSelectedItem());
+        System.out.println(combobx.getSelectionModel().getSelectedItem());
+    }
+    public void itemsinclass(){
+        Department department1 = new Department(1,"SC");
+        Department department2 = new Department(2,"ITO");
+        Department department3 = new Department(3,"DBOS");
+        Department department4 = new Department(4,"SDE");
+
+        ObservableList<Department> departments = FXCollections.observableArrayList();
+        departments.addAll(department1,department2,department3,department4);
+
+        classcombo.setItems(departments);
+
     }
 
     @Override
@@ -82,7 +105,9 @@ public class LoginController implements Initializable {
             });
         });
         combobx.setItems(filteredItems);
+        itemsinclass();
     }
+
     /*
 
         ComboBox<String> cb = new ComboBox<String>();

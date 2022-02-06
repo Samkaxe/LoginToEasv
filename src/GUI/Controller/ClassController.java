@@ -1,6 +1,6 @@
 package GUI.Controller;
 
-import GUI.Model.Department;
+import BE.Department;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;

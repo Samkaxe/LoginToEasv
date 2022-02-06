@@ -1,4 +1,4 @@
-package GUI.Model;
+package BE;
 
 import javafx.scene.image.Image;
 

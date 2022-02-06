@@ -1,4 +1,4 @@
-package GUI.Model;
+package BE;
 
 public class Department {
     private int id ;
@@ -27,9 +27,6 @@ public class Department {
 
     @Override
     public String toString() {
-        return "Department{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return  name ;
     }
 }

@@ -50,6 +50,12 @@
             <Button layoutX="543.0" layoutY="309.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="90.0" text="Save" />
             <Button fx:id="upload" layoutX="30.0" layoutY="220.0" mnemonicParsing="false" onAction="#upload" text="upload" />
             <Label layoutX="30.0" layoutY="262.0" prefHeight="17.0" prefWidth="149.0" text="upload your image" />
+            <Label layoutX="236.0" layoutY="124.0" prefHeight="17.0" prefWidth="77.0" text="Last name :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="lastname" layoutX="322.0" layoutY="122.0" promptText="Enter your last name" />
          </children></AnchorPane>
    </children>
 </StackPane>

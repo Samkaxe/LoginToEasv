@@ -1,6 +1,6 @@
 package GUI.Controller;
 
-import GUI.Model.Student;
+import BE.Student;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -22,6 +22,7 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class SignController {
     @FXML
@@ -45,13 +46,36 @@ public class SignController {
     @FXML
     public ImageView image;
     @FXML
+    public TextField lastname;
+    @FXML
     private Image image2 ;
 
-    public void save(ActionEvent actionEvent) {
+    private int tel ;
+    private int cprr ;
+    public void save(ActionEvent actionEvent) throws IOException {
+        ArrayList<Student> students = new ArrayList<>();
+        if(!telephone.getText().isEmpty()) {
+             tel = Integer.parseInt(telephone.getText());
+        }
+        if(!cpr.getText().isEmpty()) {
+             cprr = Integer.parseInt(cpr.getText());
+        }
+       Student student = new Student(1,firstname.getText()+ " "+lastname.getText(),email.getText(),tel,cprr,image2,adress.getText());
+       students.add(student);
+        System.out.println(students);
 
-        int tel  = Integer.parseInt(telephone.getText());
-        int cprr = Integer.parseInt(cpr.getText());
-       Student student = new Student(1,firstname.getText(),email.getText(),tel,cprr,image2,"ddddd");
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/View/MainWindow.fxml"));
+        Scene scene = bck.getScene();
+        root.translateXProperty().set(scene.getWidth());
+        stackpane.getChildren().add(root);
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setOnFinished(t -> {
+            stackpane.getChildren().remove(anchorpane);
+        });
+        timeline.play();
 
     }
 
@@ -62,9 +86,8 @@ public class SignController {
             fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG FILE","*png"));
             File file =  fileChooser.showOpenDialog(stage);
             System.out.println(file.toString());
-            Image image2 = new Image(file.toString());
+             image2 = new Image(file.toString());
             image.setImage(image2);
-
                 });
     }
 

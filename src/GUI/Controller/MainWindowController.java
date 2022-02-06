@@ -43,6 +43,8 @@ public class MainWindowController implements Initializable {
     @FXML
     public Button tilebtn;
     @FXML
+    public Button close;
+    @FXML
      private ImageView view ;
     @FXML
     private  Image image2 ;
@@ -90,7 +92,9 @@ public class MainWindowController implements Initializable {
 
             }
         };
-        timer.scheduleAtFixedRate(task,0,5000);
+
+            timer.scheduleAtFixedRate(task, 0, 5000);
+
     }
 
     private void changeMainView() {
@@ -112,14 +116,17 @@ public class MainWindowController implements Initializable {
               image2 = new Image("/tools/mari.gif");
               view = new ImageView(image2);
               mainancorpane.getChildren().add(view);
-              view.setLayoutX(0);
+              view.setLayoutX(200);
               view.setLayoutY(100);
+              /*
               TranslateTransition t = new TranslateTransition();
               t.setNode(view);
-              playmidea();
               t.setDuration(Duration.millis(2000));
               t.setByX(905);
               t.play();
+               */
+              playmidea();
+
               num.clear();
           }
     }
@@ -228,7 +235,8 @@ public class MainWindowController implements Initializable {
 
 
     public void exit(ActionEvent actionEvent) {
-
+        Stage stage = (Stage) close.getScene().getWindow();
+        stage.close();
     }
 
 
