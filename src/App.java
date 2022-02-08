@@ -11,12 +11,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GUI/View/Charts.fxml"));
-        Parent omori = loader.load();
-        primaryStage.setScene(new Scene(omori));
-        primaryStage.show();
-        /*
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GUI/View/MainWindow.fxml"));
         Parent omori = loader.load();
         primaryStage.setScene(new Scene(omori));
@@ -24,7 +18,5 @@ public class App extends Application {
         primaryStage.setTitle("Easv");
         primaryStage.show();
         // testing github
-
-         */
     }
 }
