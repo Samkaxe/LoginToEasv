@@ -24,6 +24,7 @@
             <Button layoutX="777.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25" prefWidth="47" style="-fx-background-image: url(/tools/english.png)" />
             <Button layoutX="853.0" layoutY="56.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="39.0" style="-fx-background-image: url(/tools/voice.png)" />
             <Button fx:id="tilebtn" layoutX="371.0" layoutY="466.0" mnemonicParsing="false" onAction="#opentilepane" prefHeight="25.0" prefWidth="159.0" text="sign in with picture" />
+            <Button layoutX="372.0" layoutY="500.0" mnemonicParsing="false" onAction="#showAttendanceStatistics" prefHeight="25.0" prefWidth="159.0" text="View Attendence Chart" />
          </children>
       </AnchorPane>
    </children>
