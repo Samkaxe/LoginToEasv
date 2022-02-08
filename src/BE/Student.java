@@ -2,7 +2,7 @@ package BE;
 
 import javafx.scene.image.Image;
 
-public class Student {
+public class Student  {
     private int id ;
     private String name ;
     private String email ;
@@ -10,8 +10,10 @@ public class Student {
     private int CPR ;
     private Image image ;
     private String address ;
+    private int attendance ;
+        // there is chance to extends the department class to the studnet to add data to it
 
-    public Student(int id, String name, String email, int telephone, int CPR, Image image, String address) {
+    public Student(int id, String name, String email, int telephone, int CPR, Image image, String address,int attendance) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -19,6 +21,15 @@ public class Student {
         this.CPR = CPR;
         this.image = image;
         this.address = address;
+        this.attendance = attendance;
+    }
+
+    public int getAttendance() {
+        return attendance;
+    }
+
+    public void setAttendance(int attendance) {
+        this.attendance = attendance;
     }
 
     public int getId() {

@@ -32,7 +32,7 @@ public class ClassController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Department department1 = new Department(1,"IT organization"  , 0);
+        Department department1 = new Department(1,"IT organization" ,0 );
         Department department2 = new Department(2,"Software Construction",0);
         Department department3 = new Department(3,"database system operations",0);
         Department department4 = new Department(4,"software design",0);
