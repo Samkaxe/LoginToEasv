@@ -40,13 +40,12 @@ public class LoginwithpicsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        Student student1 = new Student(1,"lina","sdd",2,23,null,"sdasdd");
-        Student student2 = new Student(2,"lina","sdd",2,23,null,"sdasdd");
-        Student student3 = new Student(3 ,"lina","sdd",2,23,null,"sdasdd");
-        Student student4 = new Student(4,"lina","sdd",2,23,null,"sdasdd");
-        Student student5 = new Student(5,"lina","sdd",2,23,null,"sdasdd");
-        Student student6 = new Student(6,"lina","sdd",2,23,null,"sdasdd");
-
+        Student student1 = new Student(1,"student1","sdd",2,23,null,"sdasdd");
+        Student student2 = new Student(2,"student2","sdd",2,23,null,"sdasdd");
+        Student student3 = new Student(3 ,"student3","sdd",2,23,null,"sdasdd");
+        Student student4 = new Student(4,"student4","sdd",2,23,null,"sdasdd");
+        Student student5 = new Student(5,"student5","sdd",2,23,null,"sdasdd");
+        Student student6 = new Student(6,"student6","sdd",2,23,null,"sdasdd");
 
         ObservableList<Student> students = FXCollections.observableArrayList();
         students.addAll(student1,student2,student3,student4,student5,student6);

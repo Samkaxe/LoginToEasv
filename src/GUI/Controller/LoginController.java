@@ -64,10 +64,10 @@ public class LoginController implements Initializable {
         System.out.println(combobx.getSelectionModel().getSelectedItem());
     }
     public void itemsinclass(){
-        Department department1 = new Department(1,"SC");
-        Department department2 = new Department(2,"ITO");
-        Department department3 = new Department(3,"DBOS");
-        Department department4 = new Department(4,"SDE");
+        Department department1 = new Department(1,"SC",0);
+        Department department2 = new Department(2,"ITO",0);
+        Department department3 = new Department(3,"DBOS",0);
+        Department department4 = new Department(4,"SDE",0);
 
         ObservableList<Department> departments = FXCollections.observableArrayList();
         departments.addAll(department1,department2,department3,department4);

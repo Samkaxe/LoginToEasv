@@ -28,12 +28,14 @@ public class ClassController implements Initializable {
     @FXML
     private LoginwithpicsController mainCtrl;
 
+    private int score = 0  ;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Department department1 = new Department(1,"IT organization");
-        Department department2 = new Department(2,"Software Construction");
-        Department department3 = new Department(3,"database system operations");
-        Department department4 = new Department(4,"software design");
+        Department department1 = new Department(1,"IT organization"  , 0);
+        Department department2 = new Department(2,"Software Construction",0);
+        Department department3 = new Department(3,"database system operations",0);
+        Department department4 = new Department(4,"software design",0);
 
         ObservableList<Department> departments = FXCollections.observableArrayList();
         departments.addAll(department1,department2,department3,department4);
@@ -49,14 +51,25 @@ public class ClassController implements Initializable {
             vBox.setOnMousePressed(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event){
-                    ImageIcon icon = new ImageIcon("/tools/R.png");
-                   JOptionPane.showOptionDialog(null,
+                  //  ImageIcon icon = new ImageIcon("/tools/R.png");
+                 int answer =  JOptionPane.showOptionDialog(null,
                            "dear "+mainCtrl.selectedstudent +" please comfirm your login to " + Class, " Login ",
-                           JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.INFORMATION_MESSAGE,icon,null,0) ;
+                           JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.INFORMATION_MESSAGE,null,null,0) ;
                     System.out.println(mainCtrl.selectedstudent);
+                    System.out.println(answer);
 
-                    // here we set alert  or joption pane to confirm we set the date and the class :D
-                    // i recomad  timer alert will colse after 2 second automatically :)
+                    if(answer == 0){
+                        d.setScore(d.getScore()+1);
+                        System.out.println("this student :"+mainCtrl.selectedstudent + " loggin to this class " + d.getName()+ " and get" +
+                                "this points in totall :" + d.getScore());
+                    }else if(answer == 1){
+                        System.out.println("no was selected");
+                    }else if (answer == 2){
+                        System.out.println("cancel was selected");
+                    }else if( answer == -1){
+                        System.out.println("close the joption pane was selected ");
+                    }
+
                 }
             });
         }

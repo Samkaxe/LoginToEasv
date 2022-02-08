@@ -3,10 +3,20 @@ package BE;
 public class Department {
     private int id ;
     private String name ;
+    private int score ;
 
-    public Department(int id, String name) {
+    public Department(int id, String name , int score) {
         this.id = id;
         this.name = name;
+        this.score = score ;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public int getId() {
