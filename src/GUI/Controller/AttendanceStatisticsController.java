@@ -1,18 +1,30 @@
 package GUI.Controller;
 
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 
+import java.io.IOException;
 import java.text.DateFormatSymbols;
 import java.util.Arrays;
 import java.util.Locale;
@@ -33,6 +45,10 @@ public class AttendanceStatisticsController {
     @FXML
     public StackPane tilepane;
     @FXML
+    public AnchorPane ancorpane;
+    @FXML
+    public Button tilebtn;
+    @FXML
     private BarChart<String, Integer> barChart;
 
     @FXML
@@ -40,18 +56,20 @@ public class AttendanceStatisticsController {
     @FXML
     private NumberAxis yAxis;
     @FXML
-    private showstudentstatusController controller ;
+    public showstudentstatusController controller ;
 
     private ObservableList<String> monthNames = FXCollections.observableArrayList();
-    @FXML
-    private void initialize() {
-        charts();
-        selectedStudent();
-    }
 
-    public void selectedStudent(){
-        System.out.println(controller.selectedstudent);
-         //name.setText(controller.selectedstudent);
+
+    public void showstatic(ActionEvent actionEvent) {
+        name.setText(controller.selectedstudent);
+        cpr.setText(String.valueOf(controller.selectedcpr));
+        phone.setText(String.valueOf(controller.selectedtelephone));
+        email.setText(controller.selectedemail);
+        adress.setText(controller.selectedadress);
+        imageview.setImage(controller.selectediamge);
+        charts();
+
     }
 
     public void charts(){
@@ -76,5 +94,25 @@ public class AttendanceStatisticsController {
 
     public void setController(showstudentstatusController controller) {
         this.controller = controller;
+
     }
-}
+
+
+    public void back(ActionEvent actionEvent) throws IOException {
+        FXMLLoader omori = new FXMLLoader(getClass().getResource("/GUI/View/checkstatus.fxml"));
+        Parent root = omori.load();
+        Scene scene = tilebtn.getScene();
+        root.translateXProperty().set(scene.getWidth());
+        tilepane.getChildren().add(root);
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setOnFinished(t -> {
+            tilepane.getChildren().remove(ancorpane);
+        });
+        timeline.play();
+    }
+
+    }
+

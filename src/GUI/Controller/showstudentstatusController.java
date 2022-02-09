@@ -88,7 +88,7 @@ public class showstudentstatusController implements Initializable {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/AttendanceStatistics.fxml"));
                         Parent root = loader.load();
                         Scene scene = vBox.getScene();
-                        loader.<AttendanceStatisticsController>getController().setController(showstudentstatusController.this);
+                        loader.<AttendanceStatisticsController>getController().setController(showstudentstatusController.this); // You are calling a method inside the class
                         root.translateXProperty().set(scene.getWidth());
                         stackpane.getChildren().add(root);
                         Timeline timeline = new Timeline();
