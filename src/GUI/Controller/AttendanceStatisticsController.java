@@ -12,10 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -28,6 +25,7 @@ import java.io.IOException;
 import java.text.DateFormatSymbols;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.Random;
 
 public class AttendanceStatisticsController {
     @FXML
@@ -68,9 +66,11 @@ public class AttendanceStatisticsController {
         email.setText(controller.selectedemail);
         adress.setText(controller.selectedadress);
         imageview.setImage(controller.selectediamge);
-        charts();
+        chart();
 
     }
+
+
 
     public void charts(){
         // Get an array with the English month names.
@@ -89,6 +89,24 @@ public class AttendanceStatisticsController {
 
         }
         barChart.getData().add(series1);
+    }
+
+    public void chart(){
+        Axis<String> axis = barChart.getXAxis();
+        axis.setLabel("course");
+
+        Axis<Integer> yaxis = barChart.getYAxis();
+        yaxis.setLabel("attendence");
+
+        XYChart.Series<String ,Integer> series = new XYChart.Series<>();
+        series.setName("attend to the course");
+        Random r = new Random();
+        series.getData().add(new XYChart.Data<>("ITO",r.nextInt(1,365)));
+        series.getData().add(new XYChart.Data<>("SCO",r.nextInt(1,365)));
+        series.getData().add(new XYChart.Data<>("SDE",r.nextInt(1,365)));
+        series.getData().add(new XYChart.Data<>("DBOS",r.nextInt(1,365)));
+
+       barChart.getData().add(series);
     }
 
 
