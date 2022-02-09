@@ -6,25 +6,28 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
 
 <StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="905.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MainWindowController">
    <children>
-      <AnchorPane fx:id="mainancorpane"  prefHeight="588.0" prefWidth="902.0" style="-fx-background-image: url(/tools/main.jpg)">
+      <AnchorPane stylesheets="/GUI/View/Style/styles.css" fx:id="mainancorpane" prefHeight="588.0" prefWidth="902.0" style="-fx-background-image: url(/tools/main.jpg)">
          <children>
             <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/tools/EASYDVEST.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="logfxid" layoutX="375.0" layoutY="402.0" mnemonicParsing="false" onAction="#log" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: black;" text="Log in" textFill="#defc00" />
-            <Button fx:id="signfxid" layoutX="375.0" layoutY="433.0" mnemonicParsing="false" onAction="#sign" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: white;" text="Sign in" textFill="BLUE" />
+            <Button fx:id="logfxid" layoutX="141.0" layoutY="440.0" mnemonicParsing="false" onAction="#log" prefHeight="25.0" prefWidth="111.0" styleClass="sign-in" text="Log in" textFill="#defc00" />
+            <Button fx:id="signfxid" layoutX="141.0" layoutY="405.0" mnemonicParsing="false" onAction="#sign" prefHeight="25.0" prefWidth="111.0" styleClass="log-in" text="Sign in" textFill="BLUE" />
             <Button fx:id="close" layoutX="777.0" layoutY="540.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="111.0" text="Exit" />
-            <Label fx:id="welcomelbl" layoutX="375.0" layoutY="375.0" prefHeight="17.0" prefWidth="184.0" textAlignment="CENTER" />
+            <Label fx:id="welcomelbl" layoutX="333.0" layoutY="188.0" prefHeight="17.0" prefWidth="184.0" textAlignment="CENTER" />
             <Button layoutX="840.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25" prefWidth="47" style="-fx-background-image: url(/tools/dansk.jpg)" />
             <Button layoutX="777.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25" prefWidth="47" style="-fx-background-image: url(/tools/english.png)" />
             <Button layoutX="853.0" layoutY="56.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="39.0" style="-fx-background-image: url(/tools/voice.png)" />
-            <Button fx:id="tilebtn" layoutX="371.0" layoutY="466.0" mnemonicParsing="false" onAction="#opentilepane" prefHeight="25.0" prefWidth="159.0" text="sign in with picture" />
-            <Button layoutX="372.0" layoutY="500.0" mnemonicParsing="false" fx:id="openthiswindow" onAction="#showAttendanceStatistics" prefHeight="25.0" prefWidth="159.0" text="View Attendence Chart" />
+            <Button fx:id="tilebtn" layoutX="345.0" layoutY="440.0" mnemonicParsing="false" onAction="#opentilepane" prefHeight="25.0" prefWidth="159.0" text="sign in with picture" />
+            <Button fx:id="openthiswindow" layoutX="599.0" layoutY="440.0" mnemonicParsing="false" onAction="#showAttendanceStatistics" prefHeight="25.0" prefWidth="159.0" text="View Attendence Chart" />
+            <Line endX="-25.0" endY="163.0" layoutX="315.0" layoutY="350.0" startX="-25.0" startY="-105.0" />
+            <Line endX="-25.0" endY="163.0" layoutX="586.0" layoutY="350.0" startX="-25.0" startY="-105.0" />
          </children>
       </AnchorPane>
    </children>
