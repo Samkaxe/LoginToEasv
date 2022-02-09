@@ -11,7 +11,7 @@
 
 <StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="905.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.SignController">
    <children>
-      <AnchorPane fx:id="anchorpane" prefHeight="582.0" prefWidth="905.0" style="-fx-background-image: url(/tools/Sign.jpg)">
+      <AnchorPane fx:id="anchorpane" prefHeight="582.0" prefWidth="905.0" style="-fx-background-image: url(/tools/image/Sign.jpg)">
          <children>
             <Button fx:id="bck" layoutX="718.0" layoutY="525.0" mnemonicParsing="false" onAction="#back" text="go back to themain scene" />
             <Line endX="97.39337158203125" endY="100.0" layoutX="118.0" layoutY="416.0" startX="97.39338684082031" startY="-407.535400390625" />

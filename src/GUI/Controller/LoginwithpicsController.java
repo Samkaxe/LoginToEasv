@@ -52,7 +52,7 @@ public class LoginwithpicsController implements Initializable {
         students.addAll(student1,student2,student3,student4,student5,student6);
 
         for(Student i : students){
-             view = new ImageView("tools/userpicture.png");
+             view = new ImageView("tools/image/userpicture.png");
             Label lbl = new Label(i.getName());
              vBox = new VBox();
             vBox.getChildren().add(view);

@@ -57,7 +57,7 @@ public class MainWindowController implements Initializable {
                 totalSentence = totalSentence + "" + c;
                 updateText(totalSentence);
                 try {
-                    Thread.sleep(150);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

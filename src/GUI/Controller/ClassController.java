@@ -41,7 +41,7 @@ public class ClassController implements Initializable {
         departments.addAll(department1,department2,department3,department4);
 
         for(Department d : departments){
-         view = new ImageView("tools/userpicture.png");
+         view = new ImageView("tools/image/userpicture.png");
              label = new Label(d.getName());
              String Class = d.getName();
             vBox = new VBox();
