@@ -7,12 +7,26 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 import java.text.DateFormatSymbols;
 import java.util.Arrays;
 import java.util.Locale;
 
 public class AttendanceStatisticsController {
+    @FXML
+    public ImageView imageview;
+    @FXML
+    public Label name;
+    @FXML
+    public Label cpr;
+    @FXML
+    public Label phone;
+    @FXML
+    public Label email;
+    @FXML
+    public Label adress;
     @FXML
     private BarChart<String, Integer> barChart;
 
@@ -43,7 +57,6 @@ public class AttendanceStatisticsController {
     }
 
 
-
-
-
+    public void setController(showstudentstatusController showstudentstatusController) {
+    }
 }

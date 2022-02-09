@@ -85,9 +85,10 @@ public class SignController {
             FileChooser fileChooser = new FileChooser();
             fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG FILE","*png"));
             File file =  fileChooser.showOpenDialog(stage);
-            System.out.println(file.toString());
-             image2 = new Image(file.toString());
-            image.setImage(image2);
+           if(file != null) {
+               image2 = new Image(file.toString());
+               image.setImage(image2);
+           }
                 });
     }
 

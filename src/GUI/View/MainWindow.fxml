@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -17,17 +18,17 @@
                   <Image url="@/tools/image/EASYDVEST.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="logfxid" layoutX="141.0" layoutY="440.0" mnemonicParsing="false" onAction="#log" prefHeight="25.0" prefWidth="111.0" styleClass="log-in" text="Log in" textFill="#defc00" />
-            <Button fx:id="signfxid" layoutX="141.0" layoutY="405.0" mnemonicParsing="false" onAction="#sign" prefHeight="25.0" prefWidth="111.0" styleClass="log-in" text="Sign in" textFill="BLUE" />
-            <Button fx:id="close" layoutX="777.0" layoutY="540.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="111.0" text="Exit" />
+            <Button fx:id="close" layoutX="777.0" layoutY="540.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="111.0" text="Exit" styleClass="exit" />
             <Label fx:id="welcomelbl" layoutX="298.0" layoutY="179.0" prefHeight="26.0" prefWidth="243.0" styleClass="headtitle" textAlignment="CENTER" textFill="WHITE" />
             <Button layoutX="840.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25" prefWidth="47" style="-fx-background-image: url(/tools/image/dansk.jpg)" />
             <Button layoutX="777.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25" prefWidth="47" style="-fx-background-image: url(/tools/image/english.png)" />
             <Button layoutX="853.0" layoutY="56.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="39.0" style="-fx-background-image: url(/tools/image/voice.png)" />
-            <Button fx:id="tilebtn" layoutX="345.0" layoutY="440.0" mnemonicParsing="false" onAction="#opentilepane" prefHeight="25.0" prefWidth="159.0" text="sign in with picture" />
-            <Button fx:id="openthiswindow" layoutX="599.0" layoutY="440.0" mnemonicParsing="false" onAction="#showAttendanceStatistics" prefHeight="25.0" prefWidth="159.0" text="View Attendence Chart" />
             <Line endX="-25.0" endY="163.0" layoutX="315.0" layoutY="350.0" startX="-25.0" startY="-105.0" />
             <Line endX="-25.0" endY="163.0" layoutX="586.0" layoutY="350.0" startX="-25.0" startY="-105.0" />
+            <JFXButton fx:id="signfxid" buttonType="RAISED" layoutX="147.0" layoutY="379.0" onAction="#sign" prefHeight="35.0" prefWidth="99.0" text="Sign-in"  styleClass="bottons" />
+            <JFXButton fx:id="logfxid" buttonType="RAISED" layoutX="147.0" layoutY="435.0" onAction="#log" prefHeight="35.0" prefWidth="99.0" text="log-in" styleClass="bottons" />
+            <JFXButton fx:id="tilebtn" buttonType="RAISED" layoutX="335.0" layoutY="448.0" onAction="#opentilepane" prefHeight="35.0" prefWidth="170.0" text="Sign-in" styleClass="bottons2" />
+            <JFXButton fx:id="openthiswindow" buttonType="RAISED" layoutX="607.0" layoutY="448.0" onAction="#showAttendanceStatistics" prefHeight="35.0" prefWidth="170.0" text="Sign-in" styleClass="bottons3" />
          </children>
       </AnchorPane>
    </children>

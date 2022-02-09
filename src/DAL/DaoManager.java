@@ -32,7 +32,7 @@ public class DaoManager implements DaoLogicFacade {
     }
 
     @Override
-    public Student createStudent(String name, String email, int telephone, int CPR, Image image, String address) {
+    public Student createStudent(String name, String email, int telephone, long CPR, Image image, String address) {
 
         Student createdstudent  = new Student(1,name,email,telephone,CPR,image,address,0);
 
@@ -40,7 +40,7 @@ public class DaoManager implements DaoLogicFacade {
     }
 
     @Override
-    public Student updateStudent(Student editedstudnet, String name, String email, int telephone, int CPR, Image image, String address) {
+    public Student updateStudent(Student editedstudnet, String name, String email, int telephone, long CPR, Image image, String address) {
        editedstudnet = new Student(0,name ,email,telephone,CPR,image,address,0);
         return editedstudnet ;
     }

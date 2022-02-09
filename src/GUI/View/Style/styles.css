@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 
-.log-in{
-    -fx-background-color: black;
-    -fx-font-family: 'Press Start 2P', cursive;
+.bottons{
+    -fx-background-color: linear-gradient(#00fce4, #ffe902);
 }
-.sign-in{
-    -fx-background-color: WHITE;
-    -fx-font-family: 'Press Start 2P', cursive;
+.bottons2{
+    -fx-background-color: linear-gradient(#fc004c, #0235ff);
+}
+.bottons3{
+    -fx-background-color: linear-gradient(#90ff00, #e80e0e);
+}
+.exit{
+    -fx-background-color: linear-gradient(#000000, rgba(255, 255, 255, 0));
 }
 
 .backgroundimage{

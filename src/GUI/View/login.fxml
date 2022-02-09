@@ -9,7 +9,7 @@
 
 <StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="905.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.LoginController">
    <children>
-      <AnchorPane fx:id="ancorpane" prefHeight="582.0" prefWidth="905.0" styleClass="sigin-loginwindow">
+      <AnchorPane fx:id="ancorpane" prefHeight="582.0" prefWidth="905.0" stylesheets="/GUI/View/Style/styles.css" styleClass="sigin-loginwindow">
          <children>
             <Button fx:id="backbtn" layoutX="243.0" layoutY="485.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="433.0" text="this is the login in scene" />
             <ComboBox fx:id="combobx" layoutX="350.0" layoutY="188.0" onAction="#combo" prefHeight="25.0" prefWidth="154.0" promptText="select name" />

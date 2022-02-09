@@ -5,6 +5,6 @@
 
 <StackPane fx:id="stackpane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.LoginwithpicsController">
    <children>
-      <TilePane fx:id="tilepane" style="-fx-background-color: white" />
+      <TilePane fx:id="tilepane" stylesheets="/GUI/View/Style/styles.css"  styleClass="sigin-loginwindow" />
    </children>
 </StackPane>

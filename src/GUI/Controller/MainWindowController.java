@@ -186,7 +186,7 @@ public class MainWindowController implements Initializable {
 
 
     public void showAttendanceStatistics(ActionEvent actionEvent) throws IOException {
-        FXMLLoader omori = new FXMLLoader(getClass().getResource("/GUI/View/AttendanceStatistics.fxml"));
+        FXMLLoader omori = new FXMLLoader(getClass().getResource("/GUI/View/checkstatus.fxml"));
         Parent root = omori.load();
         Scene scene = tilebtn.getScene();
         root.translateXProperty().set(scene.getWidth());

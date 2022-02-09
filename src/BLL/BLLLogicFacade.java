@@ -10,9 +10,9 @@ public interface BLLLogicFacade {
 
     public List<Student> getAllStudnets();
 
-    public Student addStudnet(String name, String email, int telephone, int CPR, Image image, String address) ;
+    public Student addStudnet(String name, String email, int telephone, long CPR, Image image, String address) ;
 
-    public void updateStudnet(Student student,String name, String email, int telephone, int CPR, Image image, String address) ;
+    public void updateStudnet(Student student,String name, String email, int telephone, long CPR, Image image, String address) ;
 
     public void deleteStudent(Student selectedStudnet);
 

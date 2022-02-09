@@ -10,9 +10,9 @@ public interface DaoLogicFacade {
     // ------------Student---------------
    public List<Student> getAllStudents();
 
-   public Student createStudent(String name, String email, int telephone, int CPR, Image image, String address);
+   public Student createStudent(String name, String email, int telephone, long CPR, Image image, String address);
 
-   public Student updateStudent(Student editedstudnet ,String name, String email, int telephone, int CPR, Image image, String address );
+   public Student updateStudent(Student editedstudnet ,String name, String email, int telephone, long CPR, Image image, String address );
 
    public void deleteStudent(Student selectedStudnet);
 
