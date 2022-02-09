@@ -23,6 +23,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.text.DateFormatSymbols;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Random;
@@ -69,9 +70,7 @@ public class AttendanceStatisticsController {
         chart();
 
     }
-
-
-
+        // zahra artwork
     public void charts(){
         // Get an array with the English month names.
         String[] months = DateFormatSymbols.getInstance(Locale.ENGLISH).getMonths();
@@ -94,10 +93,16 @@ public class AttendanceStatisticsController {
     public void chart(){
         Axis<String> axis = barChart.getXAxis();
         axis.setLabel("course");
-
+        ArrayList<String> classes = new ArrayList<>();
+        classes.add("ITO" );
+        classes.add("SCO" );
+        classes.add("SDE" );
+        classes.add("DBOS" );
+        ObservableList<String> s = FXCollections.observableArrayList();
+        s.addAll(classes);
+        xAxis.setCategories(s);
         Axis<Integer> yaxis = barChart.getYAxis();
         yaxis.setLabel("attendence");
-
         XYChart.Series<String ,Integer> series = new XYChart.Series<>();
         series.setName("attend to the course");
         Random r = new Random();
@@ -105,7 +110,6 @@ public class AttendanceStatisticsController {
         series.getData().add(new XYChart.Data<>("SCO",r.nextInt(1,365)));
         series.getData().add(new XYChart.Data<>("SDE",r.nextInt(1,365)));
         series.getData().add(new XYChart.Data<>("DBOS",r.nextInt(1,365)));
-
        barChart.getData().add(series);
     }
 

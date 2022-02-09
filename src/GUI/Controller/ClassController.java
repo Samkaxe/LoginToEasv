@@ -32,6 +32,11 @@ public class ClassController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        createDepartment();
+
+    }
+
+    public void createDepartment(){
         Department department1 = new Department(1,"IT organization" ,0 );
         Department department2 = new Department(2,"Software Construction",0);
         Department department3 = new Department(3,"database system operations",0);
@@ -39,11 +44,10 @@ public class ClassController implements Initializable {
 
         ObservableList<Department> departments = FXCollections.observableArrayList();
         departments.addAll(department1,department2,department3,department4);
-
         for(Department d : departments){
-         view = new ImageView("tools/image/userpicture.png");
-             label = new Label(d.getName());
-             String Class = d.getName();
+            view = new ImageView("tools/image/userpicture.png");
+            label = new Label(d.getName());
+            String Class = d.getName();
             vBox = new VBox();
             vBox.getChildren().add(view);
             vBox.getChildren().add(label);
@@ -51,10 +55,10 @@ public class ClassController implements Initializable {
             vBox.setOnMousePressed(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event){
-                  //  ImageIcon icon = new ImageIcon("/tools/R.png");
-                 int answer =  JOptionPane.showOptionDialog(null,
-                           "dear "+mainCtrl.selectedstudent +" please comfirm your login to " + Class, " Login ",
-                           JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.INFORMATION_MESSAGE,null,null,0) ;
+                    //  ImageIcon icon = new ImageIcon("/tools/R.png");
+                    int answer =  JOptionPane.showOptionDialog(null,
+                            "dear "+mainCtrl.selectedstudent +" please comfirm your login to " + Class, " Login ",
+                            JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.INFORMATION_MESSAGE,null,null,0) ;
                     System.out.println(mainCtrl.selectedstudent);
                     System.out.println(answer);
 
@@ -73,6 +77,7 @@ public class ClassController implements Initializable {
                 }
             });
         }
+
     }
 
     public void setController(LoginwithpicsController controller) {

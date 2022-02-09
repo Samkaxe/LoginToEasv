@@ -49,9 +49,11 @@ public class SignController {
     public TextField lastname;
     @FXML
     private Image image2 ;
-
+    @FXML
     private int tel ;
+    @FXML
     private int cprr ;
+
     public void save(ActionEvent actionEvent) throws IOException {
         ArrayList<Student> students = new ArrayList<>();
         if(!telephone.getText().isEmpty()) {

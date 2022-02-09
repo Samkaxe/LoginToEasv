@@ -50,6 +50,11 @@ public class showstudentstatusController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+     createstudent();
+    }
+
+    public void createstudent(){
         Image image1 = new Image("/tools/image/studnets/1.jpg");
         Image image2 = new Image("/tools/image/studnets/2.jpg");
         Image image3 = new Image("/tools/image/studnets/3.jpg");
@@ -106,7 +111,6 @@ public class showstudentstatusController implements Initializable {
                 }
             });
         }
-
     }
 
 
