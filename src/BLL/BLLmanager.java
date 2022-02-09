@@ -22,12 +22,12 @@ public class BLLmanager implements BLLLogicFacade{
     }
 
     @Override
-    public Student addStudnet(String name, String email, int telephone, long CPR, Image image, String address) {
+    public Student addStudnet(String name, String email, int telephone, int CPR, Image image, String address) {
         return daoManager.createStudent( name,email,telephone,CPR,image,address);
     }
 
     @Override
-    public void updateStudnet(Student student, String name, String email, int telephone, long CPR, Image image, String address) {
+    public void updateStudnet(Student student, String name, String email, int telephone, int CPR, Image image, String address) {
         daoManager.updateStudent(student,name,email,telephone,CPR,image,address);
     }
 

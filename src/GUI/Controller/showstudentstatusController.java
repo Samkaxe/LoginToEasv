@@ -35,8 +35,18 @@ public class showstudentstatusController implements Initializable {
     private ImageView view ;
     @FXML
     private VBox vBox ;
-
+    @FXML
     public String selectedstudent ;
+    @FXML
+    public int selectedtelephone ;
+    @FXML
+    public int selectedcpr ;
+    @FXML
+    public String selectedemail ;
+    @FXML
+    public String selectedadress ;
+    @FXML
+    public Image selectediamge ;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -47,12 +57,12 @@ public class showstudentstatusController implements Initializable {
         Image image5 = new Image("/tools/image/studnets/5.jpg");
         Image image6 = new Image("/tools/image/studnets/6.jpg");
 
-        Student student1 = new Student(1,"imad","conteb@live.com",158692,0,image1,"sdasdd",0);
-        Student student2 = new Student(2,"john","srour@yahoo.com",154726,23,image2,"sdasdd",0);
-        Student student3 = new Student(3 ,"darwin","helger@icloud.com",245842,23,image3,"sdasdd",0);
-        Student student4 = new Student(4,"miami","scarlet@live.com",694252,23,image4,"sdasdd",0);
-        Student student5 = new Student(5,"sarah","hyper@live.com",254861,23,image5,"sdasdd",0);
-        Student student6 = new Student(6,"Dan","yzheng@optonline.net",287465,23,image6,"sdasdd",0);
+        Student student1 = new Student(1,"imad","conteb@live.com",158692,19253881 ,image1,"sdasdd",0);
+        Student student2 = new Student(2,"john","srour@yahoo.com",154726,19285425 ,image2,"sdasdd",0);
+        Student student3 = new Student(3 ,"darwin","helger@icloud.com",245842,17914099  ,image3,"sdasdd",0);
+        Student student4 = new Student(4,"miami","scarlet@live.com",694252,61589431  ,image4,"sdasdd",0);
+        Student student5 = new Student(5,"sarah","hyper@live.com",254861,18497631 ,image5,"sdasdd",0);
+        Student student6 = new Student(6,"Dan","yzheng@optonline.net",287465,91549940 ,image6,"sdasdd",0);
 
         ObservableList<Student> students = FXCollections.observableArrayList();
         students.addAll(student1,student2,student3,student4,student5,student6);
@@ -69,11 +79,16 @@ public class showstudentstatusController implements Initializable {
                 public void handle(MouseEvent event) {
                     try {
                         selectedstudent = i.getName();
-                        System.out.println("student selected : " +  i.getName());
-                        FXMLLoader omori = new FXMLLoader(getClass().getResource("/GUI/View/AttendanceStatistics.fxml"));
-                        Parent root = omori.load();
-                        omori.<AttendanceStatisticsController>getController().setController(showstudentstatusController.this);
+                        selectedtelephone = i.getTelephone();
+                        selectedadress = i.getAddress();
+                        selectedcpr = i.getCPR();
+                        selectedemail = i.getEmail();
+                        selectediamge = i.getImage();
+
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/AttendanceStatistics.fxml"));
+                        Parent root = loader.load();
                         Scene scene = vBox.getScene();
+                        loader.<AttendanceStatisticsController>getController().setController(showstudentstatusController.this);
                         root.translateXProperty().set(scene.getWidth());
                         stackpane.getChildren().add(root);
                         Timeline timeline = new Timeline();

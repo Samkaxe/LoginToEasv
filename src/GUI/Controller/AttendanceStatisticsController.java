@@ -2,6 +2,7 @@ package GUI.Controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
@@ -9,6 +10,8 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 
 import java.text.DateFormatSymbols;
 import java.util.Arrays;
@@ -28,16 +31,30 @@ public class AttendanceStatisticsController {
     @FXML
     public Label adress;
     @FXML
+    public StackPane tilepane;
+    @FXML
     private BarChart<String, Integer> barChart;
 
     @FXML
     private CategoryAxis xAxis;
     @FXML
     private NumberAxis yAxis;
+    @FXML
+    private showstudentstatusController controller ;
 
     private ObservableList<String> monthNames = FXCollections.observableArrayList();
     @FXML
     private void initialize() {
+        charts();
+        selectedStudent();
+    }
+
+    public void selectedStudent(){
+        System.out.println(controller.selectedstudent);
+         //name.setText(controller.selectedstudent);
+    }
+
+    public void charts(){
         // Get an array with the English month names.
         String[] months = DateFormatSymbols.getInstance(Locale.ENGLISH).getMonths();
         int[] values= new int[]{1,2,4,5,6,7,8,9,1,4,3,6,7};
@@ -57,6 +74,7 @@ public class AttendanceStatisticsController {
     }
 
 
-    public void setController(showstudentstatusController showstudentstatusController) {
+    public void setController(showstudentstatusController controller) {
+        this.controller = controller;
     }
 }

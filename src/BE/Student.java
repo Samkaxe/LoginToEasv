@@ -7,13 +7,13 @@ public class Student  {
     private String name ;
     private String email ;
     private int telephone ;
-    private long cpr ;
+    private int cpr ;
     private Image image ;
     private String address ;
     private int attendance ;
         // there is chance to extends the department class to the studnet to add data to it
 
-    public Student(int id, String name, String email, int telephone, long cpr, Image image, String address,int attendance) {
+    public Student(int id, String name, String email, int telephone, int cpr, Image image, String address,int attendance) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -64,11 +64,11 @@ public class Student  {
         this.telephone = telephone;
     }
 
-    public long getCPR() {
+    public int getCPR() {
         return cpr;
     }
 
-    public void setCPR(long CPR) {
+    public void setCPR(int CPR) {
         this.cpr = CPR;
     }
 
