@@ -8,28 +8,28 @@ import java.util.List;
 
 public interface DaoLogicFacade {
     // ------------Student---------------
-   public List<Student> getAllStudents();
+    List<Student> getAllStudents();
 
-   public Student createStudent(String name, String email, int telephone, int CPR, Image image, String address);
+   Student createStudent(String name, String email, int telephone, int CPR, Image image, String address);
 
-   public Student updateStudent(Student editedstudnet ,String name, String email, int telephone, int CPR, Image image, String address );
+   Student updateStudent(Student editedstudnet, String name, String email, int telephone, int CPR, Image image, String address);
 
-   public void deleteStudent(Student selectedStudnet);
+   void deleteStudent(Student selectedStudnet);
 
    //----------------Department---------------
 
-    public List<Department> getAllDepartments();
+    List<Department> getAllDepartments();
 
-    public Department createDepartment(String name);
+    Department createDepartment(String name);
 
-    public Department updateDepartment(Department editeddepartment, String name);
+    Department updateDepartment(Department editeddepartment, String name);
 
-    public void deleteDepartment(Department department);
+    void deleteDepartment(Department department);
 
     //------------------Department-Studnet----------
 
-    public int getscore (int id);
+    int getscore(int id);
 
-    public void signin(Department selectedDepartment , Student selectedStudent);
+    void signin(Department selectedDepartment, Student selectedStudent);
 
 }

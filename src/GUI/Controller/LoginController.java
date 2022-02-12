@@ -94,11 +94,7 @@ public class LoginController implements Initializable {
                 // isn't equal to the current input, we refilter the list.
                 if (selected == null || !selected.equals(editor.getText())) {
                     filteredItems.setPredicate(item -> {
-                        if (item.toUpperCase().startsWith(newValue.toUpperCase())) {
-                            return true;
-                        } else {
-                            return false;
-                        }
+                        return item.toUpperCase().startsWith(newValue.toUpperCase());
                     });
                 }
             });

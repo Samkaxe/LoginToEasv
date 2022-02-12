@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -39,13 +40,31 @@ public class MainWindowController implements Initializable {
     public Button close;
      @FXML
     public Button openthiswindow;
+     @FXML
+    public JFXButton totalattendence;
 
-    private  List<String> num = new ArrayList<>();
+    private final List<String> num = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         intro();
 
+    }
+
+    public void showattendeme(ActionEvent actionEvent) throws IOException {
+        FXMLLoader kel = new FXMLLoader(getClass().getResource("/GUI/View/allstudent.fxml"));
+        Parent root = kel.load();
+        Scene scene = logfxid.getScene();
+        root.translateYProperty().set(scene.getHeight());
+        stackpane.getChildren().add(root);
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setOnFinished(t -> {
+            stackpane.getChildren().remove(mainancorpane);
+        });
+        timeline.play();
     }
 
     public void intro() {
@@ -140,7 +159,7 @@ public class MainWindowController implements Initializable {
         });
         timeline.play();
     }
-    }
+}
 // ᚱᛖᛗᛟvᛁᚾᚷ Hᛁᛞᛞᛖᚾ Eᚨᛊᛏᛖᚱ ,
 // ᚾᛟᛏᛖ : Dᛟᚾᛏ ᛞᛖᛚᛖᛏᛖ ᛏᚺᛁᛊ Cᛟᚾᛏᛖᚾᛏ
  /*

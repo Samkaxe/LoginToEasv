@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="905.0" stylesheets="/GUI/View/Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.Allstudent">
+   <children>
+      <AnchorPane fx:id="ancchorpane" prefHeight="584" prefWidth="905" styleClass="sigin-loginwindow">
+         <children>
+            <JFXTreeTableView fx:id="tableview" layoutX="42.0" layoutY="139.0" prefHeight="373.0" prefWidth="423.0" styleClass="exit" />
+            <JFXButton fx:id="backbut" layoutX="771.0" layoutY="524.0" onAction="#back" styleClass="bottons" text="Back" />
+            <JFXCheckBox fx:id="SCO" layoutX="42.0" layoutY="107.0" onAction="#checkSco" prefHeight="25.0" prefWidth="94.0" text="SCO" />
+            <JFXCheckBox layoutX="230.0" layoutY="107.0" onAction="#checkITO" prefHeight="25.0" prefWidth="94.0" text="ITO" />
+            <JFXCheckBox layoutX="130.0" layoutY="107.0" onAction="#checkSDE" prefHeight="25.0" prefWidth="94.0" text="SDE" />
+            <ChoiceBox fx:id="choicebox" layoutX="42.0" layoutY="29.0" prefWidth="150.0" />
+            <Label layoutX="202.0" layoutY="33.0" prefHeight="17.0" prefWidth="94.0" text="choose Date " />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

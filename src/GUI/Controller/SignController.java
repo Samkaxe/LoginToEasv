@@ -62,7 +62,7 @@ public class SignController {
         if(!cpr.getText().isEmpty()) {
              cprr = Integer.parseInt(cpr.getText());
         }
-       Student student = new Student(1,firstname.getText()+ " "+lastname.getText(),email.getText(),tel,cprr,image2,adress.getText(),0);
+       Student student = new Student(1,firstname.getText()+ " "+lastname.getText(),email.getText(),tel,cprr,image2,null,adress.getText(),0,0,0,0);
        students.add(student);
         System.out.println(students);
 

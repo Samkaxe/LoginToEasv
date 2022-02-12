@@ -28,7 +28,7 @@ public class ClassController implements Initializable {
     @FXML
     private LoginwithpicsController mainCtrl;
 
-    private int score = 0  ;
+    private final int score = 0  ;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

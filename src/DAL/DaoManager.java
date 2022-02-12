@@ -15,12 +15,12 @@ public class DaoManager implements DaoLogicFacade {
     @Override
     public List<Student> getAllStudents() {
         students = new ArrayList<>();
-        Student student1 = new Student(1,"zahra","zahra@gmail.com", 123456,1527141212,null,"majlbevij13",0);
-        Student student2 = new Student(2,"imad","zahra@gmail.com", 123456,1527141212,null,"majlbevij13",0);
-        Student student3 = new Student(3,"peter","zahra@gmail.com", 123456,1527141212,null,"majlbevij13",0);
-        Student student4 = new Student(4,"trine","zahra@gmail.com", 123456,1527141212,null,"majlbevij13",0);
-        Student student5 = new Student(5,"george","zahra@gmail.com", 123456,1527141212,null,"majlbevij13",0);
-        Student student6 = new Student(6,"matt","zahra@gmail.com", 123456,1527141212,null,"majlbevij13",0);
+        Student student1 = new Student(1,"zahra","zahra@gmail.com", 123456,1527141212,null,null,"majlbevij13",0,0,0,0);
+        Student student2 = new Student(2,"imad","zahra@gmail.com", 123456,1527141212,null,null,"majlbevij13",0,0,0,0);
+        Student student3 = new Student(3,"peter","zahra@gmail.com", 123456,1527141212,null,null,"majlbevij13",0,0,0,0);
+        Student student4 = new Student(4,"trine","zahra@gmail.com", 123456,1527141212,null,null,"majlbevij13",0,0,0,0);
+        Student student5 = new Student(5,"george","zahra@gmail.com", 123456,1527141212,null,null,"majlbevij13",0,0,0,0);
+        Student student6 = new Student(6,"matt","zahra@gmail.com", 123456,1527141212,null,null,"majlbevij13",0,0,0,0);
 
         students.add(student1);
         students.add(student2);
@@ -34,14 +34,14 @@ public class DaoManager implements DaoLogicFacade {
     @Override
     public Student createStudent(String name, String email, int telephone, int CPR, Image image, String address) {
 
-        Student createdstudent  = new Student(1,name,email,telephone,CPR,image,address,0);
+        Student createdstudent  = new Student(1,name,email,telephone,CPR,image,null,address,0,0,0,0);
 
          return createdstudent;
     }
 
     @Override
     public Student updateStudent(Student editedstudnet, String name, String email, int telephone, int CPR, Image image, String address) {
-       editedstudnet = new Student(0,name ,email,telephone,CPR,image,address,0);
+       editedstudnet = new Student(0,name ,email,telephone,CPR,image,null,address,0,0,0,0);
         return editedstudnet ;
     }
 

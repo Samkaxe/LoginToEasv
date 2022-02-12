@@ -8,21 +8,21 @@ import java.util.List;
 
 public interface BLLLogicFacade {
 
-    public List<Student> getAllStudnets();
+    List<Student> getAllStudnets();
 
-    public Student addStudnet(String name, String email, int telephone, int CPR, Image image, String address) ;
+    Student addStudnet(String name, String email, int telephone, int CPR, Image image, String address) ;
 
-    public void updateStudnet(Student student,String name, String email, int telephone, int CPR, Image image, String address) ;
+    void updateStudnet(Student student, String name, String email, int telephone, int CPR, Image image, String address) ;
 
-    public void deleteStudent(Student selectedStudnet);
+    void deleteStudent(Student selectedStudnet);
 
-    public  List<Department> getAllDepartment() ;
+    List<Department> getAllDepartment() ;
 
-    public Department addDeparment(String name);
+    Department addDeparment(String name);
 
-    public void deleteDepartment(Department department);
+    void deleteDepartment(Department department);
 
-    public void signStudnettoDepartment(Department department , Student student) ;
+    void signStudnettoDepartment(Department department, Student student) ;
 
-    public int getscore (int id);
+    int getscore(int id);
 }

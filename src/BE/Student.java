@@ -1,8 +1,11 @@
 package BE;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.scene.image.Image;
 
-public class Student  {
+import java.util.Date;
+
+public class Student extends RecursiveTreeObject<Student> {
     private int id ;
     private String name ;
     private String email ;
@@ -10,10 +13,14 @@ public class Student  {
     private int cpr ;
     private Image image ;
     private String address ;
-    private int attendance ;
+    private int totalscore;
+    private int scoalt ;
+    private int itoalt ;
+    private int sdealt ;
+    private Date signin ;
         // there is chance to extends the department class to the studnet to add data to it
 
-    public Student(int id, String name, String email, int telephone, int cpr, Image image, String address,int attendance) {
+    public Student(int id, String name, String email, int telephone, int cpr, Image image,Date signin, String address,int scoalt, int itoalt,int sdealt,int totalscore) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -21,15 +28,59 @@ public class Student  {
         this.cpr = cpr;
         this.image = image;
         this.address = address;
-        this.attendance = attendance;
+        this.totalscore = totalscore;
+        this.scoalt = scoalt ;
+        this.sdealt = sdealt ;
+        this.itoalt = itoalt ;
+        this.signin = signin ;
+     }
+
+    public Date getSignin() {
+        return signin;
     }
 
-    public int getAttendance() {
-        return attendance;
+    public void setSignin(Date signin) {
+        this.signin = signin;
     }
 
-    public void setAttendance(int attendance) {
-        this.attendance = attendance;
+    public int getScoalt() {
+        return scoalt;
+    }
+
+    public void setScoalt(int scoalt) {
+        this.scoalt = scoalt;
+    }
+
+    public int getItoalt() {
+        return itoalt;
+    }
+
+    public void setItoalt(int itoalt) {
+        this.itoalt = itoalt;
+    }
+
+    public int getSdealt() {
+        return sdealt;
+    }
+
+    public void setSdealt(int sdealt) {
+        this.sdealt = sdealt;
+    }
+
+    public int getCpr() {
+        return cpr;
+    }
+
+    public void setCpr(int cpr) {
+        this.cpr = cpr;
+    }
+
+    public int getTotalscore() {
+        return totalscore;
+    }
+
+    public void setTotalscore(int totalscore) {
+        this.totalscore = totalscore;
     }
 
     public int getId() {
@@ -64,13 +115,7 @@ public class Student  {
         this.telephone = telephone;
     }
 
-    public int getCPR() {
-        return cpr;
-    }
 
-    public void setCPR(int CPR) {
-        this.cpr = CPR;
-    }
 
     public Image getImage() {
         return image;
@@ -95,9 +140,13 @@ public class Student  {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", telephone=" + telephone +
-                ", CPR=" + cpr +
+                ", cpr=" + cpr +
                 ", image=" + image +
                 ", address='" + address + '\'' +
+                ", totalscore=" + totalscore +
+                ", scoalt=" + scoalt +
+                ", itoalt=" + itoalt +
+                ", sdealt=" + sdealt +
                 '}';
     }
 }

@@ -57,7 +57,7 @@ public class AttendanceStatisticsController {
     @FXML
     public showstudentstatusController controller ;
 
-    private ObservableList<String> monthNames = FXCollections.observableArrayList();
+    private final ObservableList<String> monthNames = FXCollections.observableArrayList();
 
 
     public void showstatic(ActionEvent actionEvent) {
