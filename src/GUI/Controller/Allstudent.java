@@ -7,6 +7,7 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,16 +17,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Date;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Allstudent implements Initializable {
     @FXML
@@ -33,29 +37,34 @@ public class Allstudent implements Initializable {
     @FXML
     public AnchorPane ancchorpane;
     @FXML
-    public JFXTreeTableView tableview;
-    @FXML
     public JFXButton backbut;
     @FXML
     public JFXCheckBox SCO;
     @FXML
     public ChoiceBox choicebox;
-
-    private TreeTableColumn name = new TreeTableColumn("Name");
     @FXML
-    private  TreeTableColumn cpr = new TreeTableColumn("cpr");
+    public ImageView imageview;
     @FXML
-    private  TreeTableColumn email = new TreeTableColumn("email");
+    public Label name;
     @FXML
-    private  TreeTableColumn tele = new TreeTableColumn("telephone");
+    public TableView<Student> tbleview;
     @FXML
-    private TreeTableColumn atteneded = new TreeTableColumn("attend");
+    public TableColumn<Student, Integer> id;
     @FXML
-    private  TreeTableColumn Course = new TreeTableColumn("Course");
+    public TableColumn<Student, String> namee;
     @FXML
-    private  TreeTableColumn score = new TreeTableColumn("total");
+    public TableColumn<Student, Integer> atteneded;
+    @FXML
+    public TableColumn<Student, String> address;
+    @FXML
+    private BarChart<String, Integer> barChart;
+    @FXML
+    private CategoryAxis xAxis;
+    @FXML
+    private NumberAxis yAxis;
 
     private ObservableList s ;
+
     private ObservableList listofStudents ;
 
     private String d = "Today" ;
@@ -65,10 +74,8 @@ public class Allstudent implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         Displaystudent();
         choice();
-
     }
 
     public void choice(){
@@ -79,42 +86,27 @@ public class Allstudent implements Initializable {
     }
 
     private void choosedate(Event event) {
-        /*
-       Date d = new Date();
-       SimpleDateFormat das = new SimpleDateFormat("hh:mm:ss");
-        System.out.println(das.format(d));
-        SimpleDateFormat dasS = new SimpleDateFormat("DD:MM:YYYY");
-         System.out.println(dasS.format(d));
-         */
 
         if(choicebox.getSelectionModel().getSelectedItem() == d){
+
             // if the student.getdate after the currunt date will add 1 meaning he show up
             // if its after meaning he came late or how didnot show at all
-        atteneded.setCellValueFactory(new TreeItemPropertyValueFactory<Student,Integer>("totalscore"));
-        tableview.refresh();
+            atteneded.setCellValueFactory(new PropertyValueFactory<>("totalscore"));
+            tbleview.refresh();
       }else if (choicebox.getSelectionModel().getSelectedItem() == m){
-            atteneded.setCellValueFactory(new TreeItemPropertyValueFactory<Student,Integer>("scoalt"));
-            tableview.refresh();
+            atteneded.setCellValueFactory(new PropertyValueFactory<>("scoalt"));
+            tbleview.refresh();
       }else if (choicebox.getSelectionModel().getSelectedItem() == w){
-            atteneded.setCellValueFactory(new TreeItemPropertyValueFactory<Student,Integer>("sdealt"));
-            tableview.refresh();
+            atteneded.setCellValueFactory(new PropertyValueFactory<>("itoalt"));
+            tbleview.refresh();
 
       }
+
+
     }
 
     public void Displaystudent() {
-         name = new TreeTableColumn("Name");
-         cpr = new TreeTableColumn("cpr");
-         email = new TreeTableColumn("email");
-         tele = new TreeTableColumn("telephone");
-         atteneded = new TreeTableColumn("attend");
-         Course = new TreeTableColumn("Course");
-         score = new TreeTableColumn("total");
-        name.setCellValueFactory(new TreeItemPropertyValueFactory<Student,String>("name"));
-        cpr.setCellValueFactory(new TreeItemPropertyValueFactory<Student,Integer>("cpr"));
-        email.setCellValueFactory(new TreeItemPropertyValueFactory<Student,String>("email"));
-        tele.setCellValueFactory(new TreeItemPropertyValueFactory<Student,Integer>("telephone"));
-        atteneded.setCellValueFactory(new TreeItemPropertyValueFactory<Student,Integer>("totalscore"));
+
         java.util.Date Ust = new Date();
         java.sql.Date date = new java.sql.Date(Ust.getTime());
         Image image1 = new Image("/tools/image/studnets/1.jpg");
@@ -126,28 +118,54 @@ public class Allstudent implements Initializable {
         Student student6 = new Student(6,"Dan","yzheng@optonline.net",287465,91549940 ,image1,date,"sdasdd",10,10,5,0);
         listofStudents = FXCollections.observableArrayList();
         listofStudents.addAll(student1,student2,student3,student4,student5,student6);
-        tableview.getColumns().addAll(atteneded,name,cpr,email);
-        TreeItem<Student> root = new RecursiveTreeItem<>(listofStudents, RecursiveTreeObject :: getChildren);
-        tableview.setRoot(root);
-        tableview.setShowRoot(false);
+        tbleview.setItems(listofStudents);
+        //    public Student(int id, String name, String email, int telephone, int cpr, Image image,Date signin, String address,int scoalt, int itoalt,int sdealt,int totalscore) {
+
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        namee.setCellValueFactory(new PropertyValueFactory<>("name"));
+        atteneded.setCellValueFactory(new PropertyValueFactory<>("totalscore"));
+        address.setCellValueFactory(new PropertyValueFactory<>("address"));
+    }
+    public void chart(){
+        Axis<String> axis = barChart.getXAxis();
+        axis.setLabel("course");
+        ArrayList<String> classes = new ArrayList<>();
+        classes.add("ITO" );
+        classes.add("SCO" );
+        classes.add("SDE" );
+        classes.add("DBOS" );
+        ObservableList<String> s = FXCollections.observableArrayList();
+        s.addAll(classes);
+        xAxis.setCategories(s);
+        Axis<Integer> yaxis = barChart.getYAxis();
+        yaxis.setLabel("attendence");
+        XYChart.Series<String ,Integer> series = new XYChart.Series<>();
+        series.setName("attend to the course");
+        Random r = new Random();
+        series.getData().add(new XYChart.Data<>("ITO",r.nextInt(1,365)));
+        series.getData().add(new XYChart.Data<>("SCO",r.nextInt(1,365)));
+        series.getData().add(new XYChart.Data<>("SDE",r.nextInt(1,365)));
+        series.getData().add(new XYChart.Data<>("DBOS",r.nextInt(1,365)));
+        barChart.getData().add(series);
+
 
     }
 
     public void checkSco(ActionEvent actionEvent) {
-        atteneded.setCellValueFactory(new TreeItemPropertyValueFactory<Student,Integer>("scoalt"));
+        atteneded.setCellValueFactory(new PropertyValueFactory<>("scoalt"));
         // tell the world that i spend two hours updating the model , the list , adding rerfresh methods , boolean
         // check google , stackoverflow and at the end ,this small line of code did the job without crash , excepion , error's
         // this is me in melt down mode telling java THANKS , THANKS ALOT  :)
-        tableview.refresh();
+        tbleview.refresh();
     }
 
     public void checkITO(ActionEvent actionEvent) {
-        atteneded.setCellValueFactory(new TreeItemPropertyValueFactory<Student,Integer>("itoalt"));
-        tableview.refresh();
+        atteneded.setCellValueFactory(new PropertyValueFactory<>("itoalt"));
+        tbleview.refresh();
     }
     public void checkSDE(ActionEvent actionEvent) {
-        atteneded.setCellValueFactory(new TreeItemPropertyValueFactory<Student,Integer>("sdealt"));
-        tableview.refresh();
+        atteneded.setCellValueFactory(new PropertyValueFactory<>("sdealt"));
+        tbleview.refresh();
     }
 
     public void back(ActionEvent actionEvent) throws IOException {
@@ -166,4 +184,11 @@ public class Allstudent implements Initializable {
         timeline.play();
     }
 
+    public void fs(MouseEvent mouseEvent) {
+        barChart.getData().clear();
+        System.out.println(tbleview.getSelectionModel().getSelectedItem().getName());
+        name.setText(tbleview.getSelectionModel().getSelectedItem().getName());
+        imageview.setImage(tbleview.getSelectionModel().getSelectedItem().getImage());
+        chart();
+    }
 }

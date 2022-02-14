@@ -1,11 +1,11 @@
 package BE;
 
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+
 import javafx.scene.image.Image;
 
 import java.util.Date;
 
-public class Student extends RecursiveTreeObject<Student> {
+public class Student {
     private int id ;
     private String name ;
     private String email ;

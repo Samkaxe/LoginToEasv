@@ -5,19 +5,11 @@ public class Department {
     private String name ;
     private int score ;
 
-    public Department(int id, String name,int score) {
+    public Department(int id, String name) {
         this.id = id;
         this.name = name;
         this.score = score;
 
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
     public int getId() {

@@ -53,10 +53,10 @@ public class DaoManager implements DaoLogicFacade {
     @Override
     public List<Department> getAllDepartments() {
         departments = new ArrayList<>();
-        Department department1 = new Department(1,"ITO",0);
-        Department department2 = new Department(2,"SCO",0);
-        Department department3 = new Department(3,"SDE",0);
-        Department department4 = new Department(4,"DBOS",0);
+        Department department1 = new Department(1,"ITO");
+        Department department2 = new Department(2,"SCO");
+        Department department3 = new Department(3,"SDE");
+        Department department4 = new Department(4,"DBOS");
         departments.add(department1);
         departments.add(department2);
         departments.add(department3);
@@ -67,14 +67,14 @@ public class DaoManager implements DaoLogicFacade {
 
     @Override
     public Department createDepartment(String name) {
-        Department department = new Department(1,name,0);
+        Department department = new Department(1,name);
 
         return department;
     }
 
     @Override
     public Department updateDepartment(Department editeddepartment,String name) {
-        editeddepartment = new Department(1 , name,0);
+        editeddepartment = new Department(1 , name);
         return editeddepartment;
     }
 

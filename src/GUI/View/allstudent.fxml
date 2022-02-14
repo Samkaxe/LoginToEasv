@@ -2,9 +2,14 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
-<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
@@ -12,13 +17,30 @@
    <children>
       <AnchorPane fx:id="ancchorpane" prefHeight="584" prefWidth="905" styleClass="sigin-loginwindow">
          <children>
-            <JFXTreeTableView fx:id="tableview" layoutX="42.0" layoutY="139.0" prefHeight="373.0" prefWidth="423.0" styleClass="exit" />
+            <BarChart fx:id="barChart" layoutX="494.0" layoutY="205.0" prefHeight="264.0" prefWidth="357.0" AnchorPane.bottomAnchor="115.0" AnchorPane.leftAnchor="494.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="205.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis fx:id="yAxis" side="LEFT" />
+               </yAxis>
+            </BarChart>
+            <Label fx:id="name" layoutX="703.0" layoutY="42.0" prefHeight="17.0" prefWidth="112.0" text="" />
+            <ImageView fx:id="imageview" fitHeight="150.0" fitWidth="200.0" layoutX="494.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
             <JFXButton fx:id="backbut" layoutX="771.0" layoutY="524.0" onAction="#back" styleClass="bottons" text="Back" />
             <JFXCheckBox fx:id="SCO" layoutX="42.0" layoutY="107.0" onAction="#checkSco" prefHeight="25.0" prefWidth="94.0" text="SCO" />
             <JFXCheckBox layoutX="230.0" layoutY="107.0" onAction="#checkITO" prefHeight="25.0" prefWidth="94.0" text="ITO" />
             <JFXCheckBox layoutX="130.0" layoutY="107.0" onAction="#checkSDE" prefHeight="25.0" prefWidth="94.0" text="SDE" />
             <ChoiceBox fx:id="choicebox" layoutX="42.0" layoutY="29.0" prefWidth="150.0" />
             <Label layoutX="202.0" layoutY="33.0" prefHeight="17.0" prefWidth="94.0" text="choose Date " />
+            <TableView fx:id="tbleview" layoutX="28.0" layoutY="149.0" onMousePressed="#fs" prefHeight="407.0" prefWidth="316.0">
+              <columns>
+                <TableColumn fx:id="id" prefWidth="75.0" text="C1" />
+                <TableColumn fx:id="namee" prefWidth="75.0" text="C2" />
+                  <TableColumn fx:id="atteneded" prefWidth="75.0" text="Column X" />
+                  <TableColumn fx:id="address" prefWidth="75.0" text="Column X" />
+              </columns>
+            </TableView>
          </children>
       </AnchorPane>
    </children>

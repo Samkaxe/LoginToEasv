@@ -119,7 +119,6 @@ public class AttendanceStatisticsController {
 
     }
 
-
     public void back(ActionEvent actionEvent) throws IOException {
         FXMLLoader omori = new FXMLLoader(getClass().getResource("/GUI/View/checkstatus.fxml"));
         Parent root = omori.load();

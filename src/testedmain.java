@@ -1,6 +1,8 @@
 import BE.Student;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class testedmain {
@@ -9,8 +11,16 @@ public class testedmain {
         java.util.Date Ust = new Date();
         java.sql.Date date = new java.sql.Date(Ust.getTime());
 
-        System.out.println(date);
-        Student student1 = new Student(1,"imad","conteb@live.com",158692,19253881 ,null,date,"sdasdd",3,5,0,0);
+       SimpleDateFormat dayformat = new SimpleDateFormat("E");
+       String d = dayformat.format(Calendar.getInstance().getTime());
+        System.out.println(d);
+        if(d.equals("Mon"))
+            System.out.println(d);
+        //calendar.add(Calendar.YEAR, -2);
+
+      //  Date d1 = calendar.getTime();
+
+
 
     }
 }
