@@ -1,6 +1,7 @@
 package GUI.Controller;
 
 import BE.Student;
+import GUI.Model.ManagerModel;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.animation.Interpolator;
@@ -64,7 +65,7 @@ public class Allstudent implements Initializable {
     private NumberAxis yAxis;
 
     private ObservableList s ;
-
+    private ManagerModel model = new ManagerModel();
     private ObservableList listofStudents ;
 
     private String d = "Today" ;
@@ -107,21 +108,10 @@ public class Allstudent implements Initializable {
 
     public void Displaystudent() {
 
-        java.util.Date Ust = new Date();
-        java.sql.Date date = new java.sql.Date(Ust.getTime());
-        Image image1 = new Image("/tools/image/studnets/1.jpg");
-        Student student1 = new Student(1,"imad","conteb@live.com",158692,19253881 ,image1,date,"sdasdd",15,5,4,0);
-        Student student2 = new Student(2,"john","srour@yahoo.com",154726,19285425 ,image1,date,"sdasdd",13,4,2,1);
-        Student student3 = new Student(3 ,"darwin","helger@icloud.com",245842,17914099  ,image1,date,"sdasdd",23,0,3,1);
-        Student student4 = new Student(4,"miami","scarlet@live.com",694252,61589431  ,image1,date,"sdasdd",22,0,2,1);
-        Student student5 = new Student(5,"sarah","hyper@live.com",254861,18497631 ,image1,date,"sdasdd",12,0,0,1);
-        Student student6 = new Student(6,"Dan","yzheng@optonline.net",287465,91549940 ,image1,date,"sdasdd",10,10,5,0);
-        listofStudents = FXCollections.observableArrayList();
-        listofStudents.addAll(student1,student2,student3,student4,student5,student6);
-        tbleview.setItems(listofStudents);
+       tbleview.setItems(model.getStudnets());
         //    public Student(int id, String name, String email, int telephone, int cpr, Image image,Date signin, String address,int scoalt, int itoalt,int sdealt,int totalscore) {
 
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        id.setCellValueFactory(new PropertyValueFactory<>("cpr"));
         namee.setCellValueFactory(new PropertyValueFactory<>("name"));
         atteneded.setCellValueFactory(new PropertyValueFactory<>("totalscore"));
         address.setCellValueFactory(new PropertyValueFactory<>("address"));
@@ -185,10 +175,12 @@ public class Allstudent implements Initializable {
     }
 
     public void fs(MouseEvent mouseEvent) {
-        barChart.getData().clear();
-        System.out.println(tbleview.getSelectionModel().getSelectedItem().getName());
-        name.setText(tbleview.getSelectionModel().getSelectedItem().getName());
-        imageview.setImage(tbleview.getSelectionModel().getSelectedItem().getImage());
-        chart();
+       if(tbleview.getSelectionModel().getSelectedIndex() != -1) {
+           barChart.getData().clear();
+           name.setText(tbleview.getSelectionModel().getSelectedItem().getName());
+           imageview.setImage(tbleview.getSelectionModel().getSelectedItem().getImage());
+           chart();
+       }
+
     }
 }

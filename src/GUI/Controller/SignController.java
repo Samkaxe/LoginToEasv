@@ -1,6 +1,7 @@
 package GUI.Controller;
 
 import BE.Student;
+import GUI.Model.ManagerModel;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -53,8 +54,12 @@ public class SignController {
     private int tel ;
     @FXML
     private int cprr ;
+    @FXML
+    ManagerModel model = new ManagerModel();
 
     public void save(ActionEvent actionEvent) throws IOException {
+        ManagerModel model = new ManagerModel();
+
         ArrayList<Student> students = new ArrayList<>();
         if(!telephone.getText().isEmpty()) {
              tel = Integer.parseInt(telephone.getText());
@@ -62,9 +67,9 @@ public class SignController {
         if(!cpr.getText().isEmpty()) {
              cprr = Integer.parseInt(cpr.getText());
         }
-       Student student = new Student(1,firstname.getText()+ " "+lastname.getText(),email.getText(),tel,cprr,image2,null,adress.getText(),0,0,0,0);
-       students.add(student);
-        System.out.println(students);
+        Student student = new Student(1,firstname.getText()+ " "+lastname.getText(),email.getText(),tel,cprr,image2,null,adress.getText(),0,0,0,0);
+        model.getallstudent().add(student);
+
 
         Parent root = FXMLLoader.load(getClass().getResource("/GUI/View/MainWindow.fxml"));
         Scene scene = bck.getScene();

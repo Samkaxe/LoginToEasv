@@ -27,7 +27,7 @@
             </BarChart>
             <Label fx:id="name" layoutX="703.0" layoutY="42.0" prefHeight="17.0" prefWidth="112.0" text="" />
             <ImageView fx:id="imageview" fitHeight="150.0" fitWidth="200.0" layoutX="494.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
-            <JFXButton fx:id="backbut" layoutX="771.0" layoutY="524.0" onAction="#back" styleClass="bottons" text="Back" />
+            <JFXButton fx:id="backbut" buttonType="RAISED" layoutX="771.0" layoutY="524.0" onAction="#back" styleClass="bottons" text="Back" />
             <JFXCheckBox fx:id="SCO" layoutX="42.0" layoutY="107.0" onAction="#checkSco" prefHeight="25.0" prefWidth="94.0" text="SCO" />
             <JFXCheckBox layoutX="230.0" layoutY="107.0" onAction="#checkITO" prefHeight="25.0" prefWidth="94.0" text="ITO" />
             <JFXCheckBox layoutX="130.0" layoutY="107.0" onAction="#checkSDE" prefHeight="25.0" prefWidth="94.0" text="SDE" />
@@ -35,10 +35,10 @@
             <Label layoutX="202.0" layoutY="33.0" prefHeight="17.0" prefWidth="94.0" text="choose Date " />
             <TableView fx:id="tbleview" layoutX="28.0" layoutY="149.0" onMousePressed="#fs" prefHeight="407.0" prefWidth="316.0">
               <columns>
-                <TableColumn fx:id="id" prefWidth="75.0" text="C1" />
-                <TableColumn fx:id="namee" prefWidth="75.0" text="C2" />
-                  <TableColumn fx:id="atteneded" prefWidth="75.0" text="Column X" />
-                  <TableColumn fx:id="address" prefWidth="75.0" text="Column X" />
+                <TableColumn fx:id="id" prefWidth="75.0" text="CPR" />
+                <TableColumn fx:id="namee" prefWidth="75.0" text="Name" />
+                  <TableColumn fx:id="atteneded" prefWidth="75.0" text="Attended" />
+                  <TableColumn fx:id="address" prefWidth="75.0" text="adress" />
               </columns>
             </TableView>
          </children>
