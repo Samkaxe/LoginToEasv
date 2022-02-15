@@ -3,6 +3,9 @@
 
 .bottons{
     -fx-background-color: linear-gradient(#00fce4, #ffe902);
+    -fx-font-size: 8px;
+    -fx-font-family: 'Press Start 2P', cursive;
+
 }
 .bottons2{
     -fx-background-color: linear-gradient(#fc004c, #0235ff);
@@ -25,4 +28,7 @@
     -fx-font-family: 'Press Start 2P', cursive;
     -fx-text-fill: Black;
 
+}
+.Bottuntext{
+    -fx-font-family: 'Press Start 2P', cursive;
 }

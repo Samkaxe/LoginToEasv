@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -31,15 +32,11 @@ public class MainWindowController implements Initializable {
     @FXML
     public AnchorPane mainancorpane;
     @FXML
-    public Button logfxid;
-    @FXML
     public Label welcomelbl;
     @FXML
     public Button tilebtn;
     @FXML
     public Button close;
-     @FXML
-    public Button openthiswindow;
      @FXML
     public JFXButton totalattendence;
 
@@ -48,13 +45,20 @@ public class MainWindowController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         intro();
+        information();
 
+    }
+    public void information(){
+        close.setTooltip(new Tooltip("Close this window"));
+        tilebtn.setTooltip(new Tooltip("Quick login to the class"));
+        signfxid.setTooltip(new Tooltip("create your own profile in Easv"));
+        totalattendence.setTooltip(new Tooltip("show student statics \n charts and inforamtion"));
     }
 
     public void showattendeme(ActionEvent actionEvent) throws IOException {
         FXMLLoader kel = new FXMLLoader(getClass().getResource("/GUI/View/allstudent.fxml"));
         Parent root = kel.load();
-        Scene scene = logfxid.getScene();
+        Scene scene = totalattendence.getScene();
         root.translateYProperty().set(scene.getHeight());
         stackpane.getChildren().add(root);
         Timeline timeline = new Timeline();
@@ -91,21 +95,6 @@ public class MainWindowController implements Initializable {
         });
     }
 
-    public void log(ActionEvent actionEvent) throws IOException {
-        FXMLLoader kel = new FXMLLoader(getClass().getResource("/GUI/View/login.fxml"));
-        Parent root = kel.load();
-        Scene scene = logfxid.getScene();
-        root.translateYProperty().set(scene.getHeight());
-        stackpane.getChildren().add(root);
-        Timeline timeline = new Timeline();
-        KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setOnFinished(t -> {
-            stackpane.getChildren().remove(mainancorpane);
-        });
-        timeline.play();
-    }
 
     public void sign(ActionEvent actionEvent) throws IOException {
         FXMLLoader kel = new FXMLLoader(getClass().getResource("/GUI/View/sign.fxml"));
@@ -144,79 +133,24 @@ public class MainWindowController implements Initializable {
     }
 
 
-    public void showAttendanceStatistics(ActionEvent actionEvent) throws IOException {
-        FXMLLoader omori = new FXMLLoader(getClass().getResource("/GUI/View/checkstatus.fxml"));
-        Parent root = omori.load();
-        Scene scene = tilebtn.getScene();
-        root.translateXProperty().set(scene.getWidth());
-        stackpane.getChildren().add(root);
-        Timeline timeline = new Timeline();
-        KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setOnFinished(t -> {
-            stackpane.getChildren().remove(mainancorpane);
-        });
-        timeline.play();
+    public void danish(ActionEvent actionEvent) {
+        close.setText("lukke");
+        tilebtn.setText("kvik Signin");
+        signfxid.setText("oprette nye profil");
+        totalattendence.setText("vise statistik");
+        welcomelbl.setText("velkommen til Easv");
+    }
+
+    public void english(ActionEvent actionEvent) {
+        close.setText("Close");
+        tilebtn.setText("Quick login");
+        signfxid.setText("Create Profile");
+        totalattendence.setText("show attendance");
+        welcomelbl.setText("Welcome to Easv");
     }
 }
+
 // ᚱᛖᛗᛟvᛁᚾᚷ Hᛁᛞᛞᛖᚾ Eᚨᛊᛏᛖᚱ ,
 // ᚾᛟᛏᛖ : Dᛟᚾᛏ ᛞᛖᛚᛖᛏᛖ ᛏᚺᛁᛊ Cᛟᚾᛏᛖᚾᛏ
- /*
-    ᛈᚢᛒᛚᛁc vᛟᛁᛞ ᛏᛁᛗᛖᚱ(){
-        Tᛁᛗᛖᚱ ᛏᛁᛗᛖᚱ = ᚾᛖᚹ Tᛁᛗᛖᚱ();
-        TᛁᛗᛖᚱTᚨᛊᚲ ᛏᚨᛊᚲ = ᚾᛖᚹ TᛁᛗᛖᚱTᚨᛊᚲ() {
-            @Ovᛖᚱᚱᛁᛞᛖ
-            ᛈᚢᛒᛚᛁc vᛟᛁᛞ ᚱᚢᚾ() {
-              ᚾᚢᛗ.cᛚᛖᚨᚱ();
-              cᚺᚨᚾᚷᛖMᚨᛁᚾVᛁᛖᚹ();
-                Syᛊᛏᛖᛗ.ᛟᚢᛏ.ᛈᚱᛁᚾᛏᛚᚾ("ᛏᚺᛖ ᛚᛁᛊᛏ ᛁᛊ cᛚᛖᚨᚱᛖᛞ ");
 
-            }
-        };
-
-            ᛏᛁᛗᛖᚱ.ᛊcᚺᛖᛞᚢᛚᛖAᛏFᛁxᛖᛞRᚨᛏᛖ(ᛏᚨᛊᚲ, 0, 5000);
-
-    }
-
-    ᛈᚱᛁvᚨᛏᛖ vᛟᛁᛞ cᚺᚨᚾᚷᛖMᚨᛁᚾVᛁᛖᚹ() {
-        Pᛚᚨᛏᚠᛟᚱᛗ.ᚱᚢᚾLᚨᛏᛖᚱ(ᚾᛖᚹ Rᚢᚾᚾᚨᛒᛚᛖ(){
-            @Ovᛖᚱᚱᛁᛞᛖ
-            ᛈᚢᛒᛚᛁc vᛟᛁᛞ ᚱᚢᚾ() {
-                ᛗᚨᛁᚾᚨᚾcᛟᚱᛈᚨᚾᛖ.ᚷᛖᛏCᚺᛁᛚᛞᚱᛖᚾ().ᚱᛖᛗᛟvᛖ(vᛁᛖᚹ);
-            }
-        });
-    }
-
-    ᛈᚢᛒᛚᛁc vᛟᛁᛞ ᚲᛖy(KᛖyEvᛖᚾᛏ ᛖ) {
-            ᚾᚢᛗ.ᚨᛞᛞ(ᛖ.ᚷᛖᛏCᛟᛞᛖ().ᛏᛟSᛏᚱᛁᚾᚷ().ᛏᛟLᛟᚹᛖᚱCᚨᛊᛖ());
-          Sᛏᚱᛁᚾᚷ ᛊᛏᚱ = Sᛏᚱᛁᚾᚷ.ᛃᛟᛁᚾ("",ᚾᚢᛗ);
-          Syᛊᛏᛖᛗ.ᛟᚢᛏ.ᛈᚱᛁᚾᛏᛚᚾ(ᛊᛏᚱ);
-
-          ᛁᚠ(ᛊᛏᚱ.ᛖqᚢᚨᛚᛊ("ᛟᛗᛟᚱᛁ")) {
-              Syᛊᛏᛖᛗ.ᛟᚢᛏ.ᛈᚱᛁᚾᛏᛚᚾ("ᛁᛏᛊ ᚹᛟᚱᚲᛁᚾᚷ ");
-              ᛁᛗᚨᚷᛖ2 = ᚾᛖᚹ Iᛗᚨᚷᛖ("/ᛏᛟᛟᛚᛊ/ᛗᚨᚱᛁ.ᚷᛁᚠ");
-              vᛁᛖᚹ = ᚾᛖᚹ IᛗᚨᚷᛖVᛁᛖᚹ(ᛁᛗᚨᚷᛖ2);
-              ᛗᚨᛁᚾᚨᚾcᛟᚱᛈᚨᚾᛖ.ᚷᛖᛏCᚺᛁᛚᛞᚱᛖᚾ().ᚨᛞᛞ(vᛁᛖᚹ);
-              vᛁᛖᚹ.ᛊᛖᛏLᚨyᛟᚢᛏX(200);
-              vᛁᛖᚹ.ᛊᛖᛏLᚨyᛟᚢᛏY(100);
-              TᚱᚨᚾᛊᛚᚨᛏᛖTᚱᚨᚾᛊᛁᛏᛁᛟᚾ ᛏ = ᚾᛖᚹ TᚱᚨᚾᛊᛚᚨᛏᛖTᚱᚨᚾᛊᛁᛏᛁᛟᚾ();
-              ᛏ.ᛊᛖᛏNᛟᛞᛖ(vᛁᛖᚹ);
-              ᛏ.ᛊᛖᛏDᚢᚱᚨᛏᛁᛟᚾ(Dᚢᚱᚨᛏᛁᛟᚾ.ᛗᛁᛚᛚᛁᛊ(2000));
-              ᛏ.ᛊᛖᛏByX(905);
-              ᛏ.ᛈᛚᚨy();
-              ᛈᛚᚨyᛗᛁᛞᛖᚨ();
-
-              ᚾᚢᛗ.cᛚᛖᚨᚱ();
-          }
-    }
-    ᛈᚢᛒᛚᛁc vᛟᛁᛞ ᛈᛚᚨyᛗᛁᛞᛖᚨ(){
-        Sᛏᚱᛁᚾᚷ ᛈᚨᛏᚺ = "C:\\Uᛊᛖᚱᛊ\\ᛊᚨᛗ ᚲᚨxᛖ\\Dᛟcᚢᛗᛖᚾᛏᛊ\\GᛁᛏHᚢᛒ\\LᛟᚷᛁᚾTᛟEᚨᛊv\\ᛊᚱc\\ᛏᛟᛟᛚᛊ\\ᛊᛟᚢᚾᛞᛊ\\ᛊᛟᛗᛖᛏᚺᛁᚾᚷ.ᚹᚨv";
-        Mᛖᛞᛁᚨ ᛗᛖᛞᛁᚨ = ᚾᛖᚹ Mᛖᛞᛁᚨ(ᚾᛖᚹ Fᛁᛚᛖ(ᛈᚨᛏᚺ).ᛏᛟURI().ᛏᛟSᛏᚱᛁᚾᚷ());
-        MᛖᛞᛁᚨPᛚᚨyᛖᚱ ᛗᛖᛞᛁᚨPᛚᚨyᛖᚱ = ᚾᛖᚹ MᛖᛞᛁᚨPᛚᚨyᛖᚱ(ᛗᛖᛞᛁᚨ);
-        ᛗᛖᛞᛁᚨPᛚᚨyᛖᚱ.ᛈᛚᚨy();
-
-    }
-
-         */
 
