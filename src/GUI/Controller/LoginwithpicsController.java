@@ -2,6 +2,7 @@ package GUI.Controller;
 
 import BE.Student;
 import GUI.Model.ManagerModel;
+import com.jfoenix.controls.JFXButton;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -15,6 +16,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
@@ -33,6 +35,8 @@ public class LoginwithpicsController implements Initializable {
     private ImageView view;
     @FXML
     private VBox vBox;
+    @FXML
+    private HBox buttonHbox;
 
     ManagerModel model = new ManagerModel();
 
@@ -40,10 +44,25 @@ public class LoginwithpicsController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         createstudent();
 
+
     }
-
+public void goBack() throws IOException {
+    FXMLLoader omori = new FXMLLoader(getClass().getResource("/GUI/View/MainWindow.fxml"));
+    Parent root = omori.load();
+    Scene scene = vBox. getScene();
+    root.translateXProperty().set(scene.getWidth());
+    stackpane.getChildren().add(root);
+    Timeline timeline = new Timeline();
+    KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
+    KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+    timeline.getKeyFrames().add(kf);
+    timeline.setOnFinished(t -> {
+        stackpane.getChildren().remove(tilepane);
+        stackpane.getChildren().remove(buttonHbox);
+    });
+    timeline.play();
+}
     public void createstudent() {
-
         model.getStudnets();
 
         java.util.Date Ust = new Date();
@@ -57,7 +76,6 @@ public class LoginwithpicsController implements Initializable {
             vBox.getChildren().add(lbl);
             tilepane.getChildren().add(vBox);
             vBox.setOnMousePressed(event -> {
-
                  if(i.getSignin() == null){
                     i.setSignin(date);
                     System.out.println(" first if statmenet ");

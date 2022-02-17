@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<StackPane fx:id="stackpane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.LoginwithpicsController">
+<StackPane fx:id="stackpane" prefHeight="241.0" prefWidth="325.0" styleClass="backgroundimage" stylesheets="@Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.LoginwithpicsController">
    <children>
-      <TilePane fx:id="tilepane" stylesheets="/GUI/View/Style/styles.css"  styleClass="sigin-loginwindow" />
+      <TilePane fx:id="tilepane" hgap="10.0" stylesheets="/GUI/View/Style/styles.css" vgap="5.0" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding></TilePane>
+      <HBox alignment="BOTTOM_RIGHT" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="325.0" StackPane.alignment="BOTTOM_RIGHT" VBox.vgrow="NEVER">
+         <children>
+            <JFXButton onAction="#goBack" text="Back" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets bottom="19.0" left="10.0" right="20.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></JFXButton>
+         </children>
+      </HBox>
    </children>
 </StackPane>

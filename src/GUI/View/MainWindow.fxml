@@ -26,8 +26,8 @@
             <Line endX="-25.0" endY="163.0" layoutX="315.0" layoutY="350.0" startX="-25.0" startY="-105.0" />
             <Line endX="-25.0" endY="163.0" layoutX="586.0" layoutY="350.0" startX="-25.0" startY="-105.0" />
             <JFXButton fx:id="signfxid" buttonType="RAISED" layoutX="334.0" layoutY="453.0" onAction="#sign" prefHeight="35.0" prefWidth="170.0" styleClass="bottons" text="Create Profile" />
-            <JFXButton fx:id="tilebtn" buttonType="RAISED" layoutX="339.0" layoutY="274.0" onAction="#opentilepane" prefHeight="35.0" prefWidth="170.0" styleClass="bottons" text="Quick login" />
-            <JFXButton fx:id="totalattendence" buttonType="RAISED" layoutX="328.0" layoutY="362.0" onAction="#showattendeme" prefHeight="35.0" prefWidth="170.0" styleClass="bottons" text="show attendance" />
+            <JFXButton fx:id="tilebtn" buttonType="RAISED" layoutX="334.0" layoutY="274.0" onAction="#opentilepane" prefHeight="35.0" prefWidth="170.0" styleClass="bottons" text="Quick login" />
+            <JFXButton fx:id="totalattendence" buttonType="RAISED" layoutX="334.0" layoutY="362.0" onAction="#showattendeme" prefHeight="35.0" prefWidth="170.0" styleClass="bottons" text="Show attendance" />
          </children>
       </AnchorPane>
    </children>

@@ -5,57 +5,76 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="905.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.SignController">
    <children>
-      <AnchorPane fx:id="anchorpane"  prefHeight="582.0" prefWidth="905.0" stylesheets="/GUI/View/Style/styles.css" styleClass="sigin-loginwindow">
+      <AnchorPane fx:id="anchorpane" prefHeight="582.0" prefWidth="905.0" styleClass="sigin-loginwindow" stylesheets="/GUI/View/Style/styles.css" StackPane.alignment="CENTER_RIGHT">
          <children>
-            <Button fx:id="bck" layoutX="718.0" layoutY="525.0" mnemonicParsing="false" onAction="#back" text="go back to themain scene" />
+            <Button fx:id="bck" layoutX="718.0" layoutY="525.0" mnemonicParsing="false" onAction="#back" text="Go back to the main scene" />
             <Line endX="97.39337158203125" endY="100.0" layoutX="118.0" layoutY="416.0" startX="97.39338684082031" startY="-407.535400390625" />
-            <Label layoutX="236.0" layoutY="92.0" prefHeight="17.0" prefWidth="77.0" text="first name :">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="236.0" layoutY="146.0" prefHeight="17.0" prefWidth="77.0" text="Email        :">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="236.0" layoutY="172.0" prefHeight="17.0" prefWidth="77.0" text="telephone :">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="236.0" layoutY="199.0" prefHeight="17.0" prefWidth="77.0" text="address    :">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="firstname" layoutX="322.0" layoutY="90.0" promptText="Enter first name" />
-            <TextField fx:id="email" layoutX="322.0" layoutY="144.0" promptText="Enter your Email address" />
-            <TextField fx:id="telephone" layoutX="322.0" layoutY="170.0" promptText="enter your phone number " />
-            <TextField fx:id="adress" layoutX="322.0" layoutY="197.0" promptText="enter your address " />
+            <GridPane alignment="TOP_CENTER" layoutY="92.0" prefHeight="173.0" prefWidth="327.0" AnchorPane.rightAnchor="309.0" AnchorPane.topAnchor="92.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="17.0" prefWidth="77.0" text="address    :" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="77.0" text="first name :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="77.0" text="Email        :" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="77.0" text="telephone :" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="firstname" promptText="Enter first name" GridPane.columnIndex="1" />
+                  <TextField fx:id="email" promptText="Enter your Email address" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label prefHeight="17.0" prefWidth="77.0" text="CPR    :" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="77.0" text="Last name :" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="telephone" promptText="enter your phone number " GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="adress" promptText="enter your address " GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="cpr" promptText="xxxxxx-xxxx" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="lastname" promptText="Enter your last name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
             <ImageView fx:id="image" fitHeight="150.0" fitWidth="179.0" layoutX="22.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="30.0" layoutY="189.0" prefHeight="17.0" prefWidth="164.0" text="upload your profile picture" />
-            <Label layoutX="236.0" layoutY="222.0" prefHeight="17.0" prefWidth="77.0" text="CPR    :">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="cpr" layoutX="322.0" layoutY="220.0" promptText="xxxxxx-xxxx" />
             <Button layoutX="543.0" layoutY="309.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="90.0" text="Save" />
             <Button fx:id="upload" layoutX="30.0" layoutY="220.0" mnemonicParsing="false" onAction="#upload" text="upload" />
             <Label layoutX="30.0" layoutY="262.0" prefHeight="17.0" prefWidth="149.0" text="upload your image" />
-            <Label layoutX="236.0" layoutY="124.0" prefHeight="17.0" prefWidth="77.0" text="Last name :">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="lastname" layoutX="322.0" layoutY="122.0" promptText="Enter your last name" />
          </children></AnchorPane>
    </children>
 </StackPane>
